@@ -1,0 +1,61 @@
+    body {
+      min-height: 100vh;
+      background: url('/img/Fondo2.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(43,0,72,0.7);
+      z-index: 0;
+    }
+    .top-bar {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 40px 12px 40px;
+      border-bottom: 8px solid rgba(191, 4, 98, 0.619);
+    }
+
+    strong {
+      color: #fff;
+    }
+
+    span{
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-title img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+
+    .logout-icon,
+    .fas.fa-right-from-bracket {
+      font-size: 2rem;
+      color: #fff;
+      filter: drop-shadow(0 2px 6px #0006);
+      vertical-align: middle;
+    }
+    
+    @media (max-width: 900px) {
+      .form-container {
+        max-width: 98vw;
+        padding: 32px 8px 32px 8px;
+      }
+      .top-bar {
+        padding: 16px 10px 8px 10px;
+      }
+    }

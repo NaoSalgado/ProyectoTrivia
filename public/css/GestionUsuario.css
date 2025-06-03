@@ -1,0 +1,100 @@
+.container-fluid{
+    position: relative;
+    z-index: 1 !important;
+}
+
+.tabla-usuarios table {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        width: 100%;
+    }
+
+    .tabla-usuarios th {
+        background-color: #2B0048A1;
+        color: white;
+        padding: 12px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .tabla-usuarios thead tr th:first-child {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
+
+    .tabla-usuarios thead tr th:last-child {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+
+    .tabla-usuarios td {
+        background-color: #A8A8A8;
+        color: white;
+        font-size: 1.1rem;
+        padding: 12px;
+        vertical-align: middle;
+    }
+
+    .tabla-usuarios tbody tr td:first-child {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+
+    }
+
+    .tabla-usuarios tbody tr td:last-child {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+
+.custom-modal {
+  
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  
+}
+
+.icon-container {
+  margin-bottom: 10px;
+}
+
+.circle-icon {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  color: #00cfff;
+  border-radius: 50%;
+  font-size: 32px;
+  line-height: 50px;
+  margin: 0 auto;
+}
+
+.modal-text {
+  font-size: 22px; /* aumentado */
+  font-weight: bold;
+  color: #00cfff;
+  margin: 20px 0;
+}
+
+.btn-group-custom {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-custom {
+  background-color: #a8e7f4;
+  color: black;
+  border: none;
+  padding: 10px 28px; /* padding más generoso */
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px; /* letra más grande */
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.btn-custom:hover {
+  background-color: #81d9eb;
+}
