@@ -6,6 +6,8 @@
     </div>
     <div class="d-flex align-items-center">
       <span class="me-2  fs-5">Admin</span>
-      <i class="fas fa-right-from-bracket"></i>
+      <a href="/"><i class="fas fa-right-from-bracket"></i></a>
+      
     </div>
+
   </div>
