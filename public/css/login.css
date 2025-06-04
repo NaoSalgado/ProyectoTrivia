@@ -1,0 +1,74 @@
+html{
+    padding: 3%;
+}
+
+body{
+    background-image: url("/img/Fondo.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+.container-fluid {
+    background-color: #ff967038 !important;
+    padding-left: 3%;
+    padding-right: 3%;
+    border-radius: 15px;
+    padding-bottom: 3%;
+    
+}
+
+.linea-vertical {
+    width: 1px;
+    height: 250px; 
+    background-color: white;
+    margin-top: 50%;
+}
+
+.linea-horizontal {
+    border: none;
+    height: 1px;
+    background-color: white;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.btn{
+    background-color: #FF9570 !important;
+    margin-top: 5% !important;
+}
+
+.btn:hover{
+    background-color: #c27255 !important;
+}
+
+.titulo{
+    color: #FFFFFF;
+}
+
+.formulario{
+    background-color: #2b00445e;
+    height: 300px !important;
+}
+
+.linea-centro{
+    width: 1px;
+    height: 400px;
+    background-color: white;
+}
+
+
+.img{
+    height: 250px ;
+    width: 250px;
+}
+
+.bi-person-circle{
+    color: #FFFFFF;
+    height: 30px !important;
+    width: 30px !important;
+    margin-top: 10% !important;
+    margin-right: 3%;
+}

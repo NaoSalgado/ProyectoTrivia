@@ -1,0 +1,71 @@
+body {
+      min-height: 100vh;
+      background: url('/img/Fondo3.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+}
+
+.formulario-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-top: -5%;
+}
+
+.formulario {
+  background-color: rgba(255, 255, 255, 0.536);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  color: #f1f1f1;
+  width: 100%;
+  max-width: 700px;
+  min-height: 450px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  padding: 4rem 2.5rem;
+}
+
+.formulario h3 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  font-weight: bold; /* <--- esto hace la letra más gruesa */
+}
+
+
+.input-estilo {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem;
+  font-size: 1rem;
+}
+.contenedor-boton {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8rem; /* mueve el botón más abajo */
+}
+
+.btn-enviar {
+  background-color: #6a0dad;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  padding: 0.6rem 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #5a0dab;
+}
+.input-group-text {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  color: #726d75;
+}
