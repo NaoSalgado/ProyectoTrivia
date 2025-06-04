@@ -1,0 +1,164 @@
+.navbar-custom {
+    position: relative; /* Necesario para el pseudo-elemento */
+}
+.navbar-custom::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Desplaza la línea hacia abajo */
+    left: 0;
+    width: 100%;
+    height: 17px; /* Altura de la línea */
+    background-color: rgba(191, 4, 98, 0.5); /* Color rosa con opacidad */
+    z-index: 1; /* Asegura que quede visible */
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+  overflow-x: hidden;
+  background-color: #1a0033;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("/img/descarga (2).jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  z-index: -1;
+  filter: blur(1px);
+}
+
+.container-trivia {
+  max-width: 1500px;
+  margin: 50px auto;
+  padding: 25px 30px;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.question-input {
+  background-color: #cfcfcf;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  padding: 50px 20px;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px 25px;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: white;
+  width: 100%;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.option-btn:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.opcion1 { background-color: #e91e63; }
+.opcion2 { background-color: #ff9800; }
+.opcion3 { background-color: #00bcd4; }
+.opcion4 { background-color: #673ab7; }
+
+.option-btn i {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.confirmar-btn {
+  background-color: #0044ff;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  margin-top: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.confirmar-btn:hover {
+  background-color: #0026aa;
+  cursor: pointer;
+}
+
+/* Estilo para el modal */
+.modal-content {
+  background-color: #2a004d; /* Fondo púrpura oscuro */
+  border-radius: 18px;
+  border: 2px solid #bf046270;
+  box-shadow: 0 0 20px #9900ff55;
+}
+
+.modal-header, .modal-footer {
+  border: none;
+  background-color: transparent;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.modal-body label {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.modal-body input.form-control {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 15px;
+}
+
+#agregarPreguntaBtn {
+  background-color: #bf0462; /* Fucsia principal */
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+#agregarPreguntaBtn:hover {
+  background-color: #99044d;
+}
+
+.modal-footer .btn-primary {
+  background-color: #673ab7; /* Morado fuerte */
+  border: none;
+  border-radius: 10px;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #4b2d91;
+}
+
+.list-group-item-dark {
+  background-color: #3a005c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
