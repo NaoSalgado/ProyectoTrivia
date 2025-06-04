@@ -1,0 +1,134 @@
+    body {
+      min-height: 100vh;
+      background: url('img/Fondo.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(43,0,72,0.7);
+      z-index: 0;
+    }
+    .top-bar {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 40px 12px 40px;
+      border-bottom: 8px solid rgba(191, 4, 98, 0.619);
+    }
+
+    strong {
+      color: #fff;
+    }
+
+    span{
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-title img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+    .form-center-container {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .form-container {
+      background: rgba(255,255,255,0.7);
+      border-radius: 20px;
+      padding: 48px 32px 40px 32px;
+      max-width: 700px;
+      width: 90vw;
+      box-shadow: 0 8px 32px #0002;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .form-container h3 {
+      font-weight: bold;
+      margin-bottom: 2.5rem;
+      color: #2B0048;
+    }
+    .form-floating {
+      border-radius: 12px; 
+    }
+
+    .logout-icon,
+    .fas.fa-right-from-bracket {
+      font-size: 2rem;
+      color: #fff;
+      filter: drop-shadow(0 2px 6px #0006);
+      vertical-align: middle;
+    }
+    .form-control {
+      border-radius: 12px;
+      font-size: 1.1rem;
+      padding: 14px 8px;
+      color: #2B0048;
+    }
+    .form-control:focus {
+      background: transparent;
+      box-shadow: none;
+      outline: none;
+    }
+    .btn-accept {
+      background: #5800a1 !important;
+      color: #fff !important;
+      border-radius: 14px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      padding: 8px 32px;
+      box-shadow: 2px 4px 8px #0002;
+      float: right;
+      margin-top: 10px;
+      border: none;
+    }
+    .btn-accept:hover {
+      background: #603C9D !important;
+    }
+    form {
+      width: 100%;
+      max-width: 540px;
+    }
+    @media (max-width: 900px) {
+      .form-container {
+        max-width: 98vw;
+        padding: 32px 8px 32px 8px;
+      }
+      .top-bar {
+        padding: 16px 10px 8px 10px;
+      }
+    }
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 18px 2vw 18px 2vw;
+      }
+      .form-group {
+        max-width: 100%;
+      }
+      .btn-accept {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 10px 0;
+        float: none;
+      }
+      form {
+        max-width: 100%;
+      }
+    }
