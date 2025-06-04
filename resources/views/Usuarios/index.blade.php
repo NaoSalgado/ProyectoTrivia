@@ -44,7 +44,9 @@
                             </div>
                             <p class="modal-text">¿Desea eliminar el usuario?</p>
                             <div class="btn-group-custom">
-                                <form action="" method="post">
+                                <form action="{{ route('usuarios.destroy', ['usuario' => $item->id]) }}" method="post">
+                                    @method('DELETE')
+                                    @csrf
                                     <button type="submit" class="btn btn-custom {{ $item->estado == 1 }}">Sí</button>
                                     <button type="button" class="btn btn-custom" data-bs-dismiss="modal">No</button>
                                 </form>

@@ -89,8 +89,7 @@ class UsuarioController extends Controller
         if ($usuario->estado == 1)
         {
             Usuario::where('id',$usuario->id)
-            ->update(['estado' => 0
-            ]);
+            ->delete();
             $message = 'Cliente eliminado';
         } else {
             Usuario::where('id',$usuario->id)
@@ -98,5 +97,6 @@ class UsuarioController extends Controller
             ]);
             $message = 'Cliente restaurado';
         }
+        return redirect()->route('usuarios.index')->with('success', $message);
     }
 }

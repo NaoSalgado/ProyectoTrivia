@@ -22,7 +22,16 @@ class StoreUsuarioRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => 'required|max:60',
+            'nombre' => 'required|max:60|unique:usuarios,nombre'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'nombre.required' => 'El nombre es obligatorio.',
+            'nombre.max' => 'El nombre no puede exceder los 60 caracteres.',
+            'nombre.unique' => 'El nombre ya está en uso.'
         ];
     }
 }
