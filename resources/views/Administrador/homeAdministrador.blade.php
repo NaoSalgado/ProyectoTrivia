@@ -1,14 +1,13 @@
 @extends('template')
 
-@section('title', 'Administradores')
+@section('title', 'Administrador')
 
 @push('css')
     <link href="{{ asset('/css/HomeAdmin.css') }}" rel="stylesheet" />
 @endpush
-
 @section('content')
 
-  <div class="container-fluid">
+  <div class="container-fluid home-admin"> 
     <div class="row">
       
       <!-- Sidebar -->

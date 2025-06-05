@@ -5,7 +5,7 @@ use App\Http\Controllers\AdministradorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('LoginUsuario');
+    return view('Administrador.homeAdministrador');
 });
 
 Route::resources([
