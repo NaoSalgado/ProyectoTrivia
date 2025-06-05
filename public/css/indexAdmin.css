@@ -1,0 +1,216 @@
+body {
+    background-color: #2b0048;
+    margin: 0;
+    font-family: 'Inria Sans', sans-serif; /* Usa solo esta fuente */
+    color: white;
+
+    background-image: url('../img/fondo.jpeg'); /* Ruta ajustada */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/*EDICION DEL NAVBAR*/
+.navbar-custom {
+    position: relative; /* Necesario para el pseudo-elemento */
+}
+
+.navbar-custom::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Desplaza la línea hacia abajo */
+    left: 0;
+    width: 100%;
+    height: 17px; /* Altura de la línea */
+    background-color: rgba(191, 4, 98, 0.5); /* Color rosa con opacidad */
+    z-index: 1; /* Asegura que quede visible */
+}
+
+
+
+h1 {
+    font-size: 2.5rem;
+}
+
+.bg-contenedor-admin{
+    background-color: rgba(96, 60, 157, 0.5);
+}
+
+.bg-titulos{
+    background-color: rgba(43, 0, 72, 0.63);
+}
+
+.bg-ind-admin{
+    background-color: #A8A8A8;
+}
+
+.bg-ind-admin:hover
+{
+    background-color: #757474;
+    transform: translateX(5px);
+}
+
+.letras{
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 28px;
+}
+.bg-danger {
+    background-color: rgba(191, 4, 98, 0.8) !important; /* Color personalizado para el segundo lugar con opacidad */
+}
+
+.bg-primary {
+    background-color: rgba(96, 60, 157, 0.8) !important; /* Color personalizado para el primer lugar con opacidad */
+}
+
+.bg-info {
+    background-color: rgba(20, 193, 220, 0.8) !important; /* Color personalizado para el tercer lugar con opacidad */
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.titulo-admin{
+    color: white;
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: 550;
+}
+
+.btn-admin{
+    background-color: #603C9D;
+    color: white;
+}
+
+.head-admin{
+    background-color: #2B0048;
+    opacity: 100%;
+}
+
+/* Player box styles */
+.bg-danger, .bg-primary, .bg-info {
+    border-radius: 10px;
+}
+
+/*Modal de eliminar*/
+.titulo-eliminar{
+    color: #14C1DC;
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: 550;
+    font-size: 28px;
+}
+
+.btn-modal-eliminar{
+    background-color: #14C1DC;
+    color: black;
+    min-width: 80px;
+}
+
+.icon-eliminar{
+    color: #14C1DC;
+    font-size: 80px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .row {
+        flex-wrap: wrap; /* Permite que las cajas se apilen */
+        justify-content: center; /* Centra las cajas horizontalmente */
+    }
+
+    .col-3 {
+        flex: 0 0 100%; /* Las cajas ocupan el 50% del ancho */
+        max-width: 100%; /* Asegura que no excedan el ancho */
+        margin-bottom: 20px; /* Agrega espacio entre las cajas */
+    }
+
+    .bg-danger, .bg-primary, .bg-info {
+        height: 300px; /* Ajusta la altura de las cajas */
+    }
+
+    /* Cambiar el orden de las cajas */
+    .col-3:nth-child(2) {
+        order: 1; /* Caja número 1 (Diana) aparece primero */
+    }
+
+    .col-3:nth-child(1) {
+        order: 2; /* Caja número 2 (Gabo) aparece segundo */
+    }
+
+    .col-3:nth-child(3) {
+        order: 3; /* Caja número 3 (Chepe) aparece tercero */
+    }
+}
+/* Estilo para las filas de la tabla */
+.bg-light-blue {
+    background-color: rgba(20, 193, 220, 0.8); /* Azul claro con opacidad */
+    border-radius: 20px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espaciado entre filas */
+}
+
+/* Estilo para la barra de progreso */
+.progress-bar {
+    border-radius: 5px; /* Bordes redondeados para la barra */
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para el contenedor */
+    margin-top: 30px;
+}
+
+/* Estilo de las filas */
+.table-row {
+    background-color: rgba(173, 216, 230, 0.8); /* Azul claro con opacidad */
+    border-radius: 20px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espaciado entre filas */
+    display: flex; /* Flexbox para alinear contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Elimina cualquier borde */
+}
+
+/* Estilo de las celdas */
+.table-row td {
+    background-color: transparent; /* Elimina el fondo blanco de las celdas */
+    border: none; /* Elimina cualquier borde de las celdas */
+    padding: 0; /* Ajusta el espaciado interno */
+}
+
+.position {
+    font-size: 3rem;
+    font-weight: bold;
+    flex: 0 0 10%; /* Ancho fijo para la posición */
+}
+
+.player-name {
+    font-size: 3rem;
+    font-weight: bold;
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+.points {
+    text-align: right;
+    font-size: 3rem;
+    flex: 0 0 30%; /* Ancho fijo para los puntos */
+    display: flex;
+    align-items: center; /* Centra verticalmente los puntos */
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+}
+
+/* Barra de progreso (eliminada) */
+.progress {
+    display: none; /* Oculta la barra de progreso */
+}
+
+

@@ -13,9 +13,9 @@ class AdministradorController extends Controller
 {
     public function index()
     {
-        $administradores = Administradore::all();
+        $administrador = Administradore::all();
 
-        return view('administrador.index', compact('administradores'));
+        return view('administrador.index', ['administrador' => $administrador]);
     }
 
     public function create()
@@ -23,7 +23,7 @@ class AdministradorController extends Controller
         return view('administrador.create');
     }
 
-   public function store(StoreAdministradorRequest $request)
+    public function store(StoreAdministradorRequest $request)
 {
     try {
         DB::beginTransaction();
@@ -31,22 +31,21 @@ class AdministradorController extends Controller
         DB::commit();
     } catch (Exception $e) {
         DB::rollBack();
-        return redirect()->back()->withErrors('Error al crear el administrador: ' . $e->getMessage());
+        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }
 
     return redirect()->route('administrador.index')->with('success','Administrador creado correctamente');
 }
 
-
-    public function edit(Administradore $administradore)
+    public function edit(Administradore $administrador)
     {
-        return view ('administrador.edit', compact('administrador'));
+        return view ('Administrador.edit', compact('administrador'));
     }
 
-    public function update(UpdateAdministradorRequest $request, Administradore $administradore)
+    public function update(UpdateAdministradorRequest $request, Administradore $administrador)
 {
 
-    Administradore::where('id', $administradore->id)
+    Administradore::where('id', $administrador->id)
         ->update($request->validated());
 
     return redirect()->route('administrador.index')->with('success','Administrador editado');
@@ -55,19 +54,17 @@ class AdministradorController extends Controller
     public function destroy(string $id)
     {
         $message = '';
-        $administradore = Administradore::find($id);
-        if ($administradore->estado == 1)
+        $Administrador = Administradore::find($id);
+        if ($Administrador->estado == 1)
         {
-            Administradore::where('id',$administradore->id)
-            ->update([
-                'estado' => 0,
-            ]);
+            Administradore::where('id',$Administrador->id)
+            ->delete();
 
             $message = 'Administrador eliminado';
         }
         else
         {
-            Administradore::where('id',$administradore->id)
+            Administradore::where('id',$Administrador->id)
             ->update([
                 'estado'=> 1
             ]);
