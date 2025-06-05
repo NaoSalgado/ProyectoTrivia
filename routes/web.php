@@ -7,7 +7,7 @@ use App\Http\Controllers\RespuestaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('LoginUsuario');
+    return view('Trivia.HomeTrivia');
 });
 
 Route::resources([
@@ -16,3 +16,4 @@ Route::resources([
     'trivias' => TriviaController::class,
     'respuestas' => RespuestaController::class
 ]);
+
