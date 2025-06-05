@@ -15,7 +15,7 @@ class AdministradorController extends Controller
     {
         $administradores = Administradore::all();
 
-        return view('administrador.index', compact('administradores'));
+        return view('administrador.index', ['administrador' => $administrador]);
     }
 
     public function create()
@@ -37,8 +37,7 @@ class AdministradorController extends Controller
     return redirect()->route('administrador.index')->with('success','Administrador creado correctamente');
 }
 
-
-    public function edit(Administradore $administradore)
+    public function edit(Administrador $administrador)
     {
         return view ('administrador.edit', compact('administrador'));
     }
