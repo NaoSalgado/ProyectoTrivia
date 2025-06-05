@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+<<<<<<< HEAD
         Schema::create('Administrador', function (Blueprint $table) 
+=======
+        Schema::create('administradores', function (Blueprint $table) 
+>>>>>>> fa18dd0 (PUTOSSSS ADMINISTRADORESS DE MIERDA)
         {
             $table->id();
             $table->string('nombre', 80);
@@ -26,6 +30,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+<<<<<<< HEAD
         Schema::dropIfExists('Administrador');
+=======
+        Schema::dropIfExists('administradores');
+>>>>>>> fa18dd0 (PUTOSSSS ADMINISTRADORESS DE MIERDA)
     }
 };

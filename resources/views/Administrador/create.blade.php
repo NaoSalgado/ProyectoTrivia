@@ -8,13 +8,26 @@
   <div class="form-center-container">
     <div class="form-container text-center">
       <h3>Crear Administrador</h3>
-      <form>
+
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+      <form method="post" action="{{ route('administrador.store') }}">
+        @csrf
           <div class="form-floating mb-3 w-100">
-            <input type="text" class="form-control" placeholder="Ingrese el nombre de usuario">
+            <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre de usuario" value="{{ old('nombre') }}">
             <label for="floatingUser">Ingrese su usuario</label>
           </div>
           <div class="form-floating mb-3 w-100">
-            <input type="password" class="form-control" placeholder="Ingrese una contraseña">
+            <input type="password" name="contrasena" class="form-control" placeholder="Ingrese una contraseña">
             <label for="floatingPassword">Ingrese su contraseña</label>
           </div>
         <div class="w-100 d-flex justify-content-end">
@@ -22,4 +35,5 @@
         </div>
       </form>
     </div>
+@endsection
 
