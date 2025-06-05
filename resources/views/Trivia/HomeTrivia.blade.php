@@ -17,7 +17,7 @@
         <!-- Tarjeta 1 -->
         <div class="col-lg-4 col-md-6">
           <div class="card">
-            <img src="img/descarga (2).jpeg" class="card-img-top" alt="Trivia 1">
+            <img src="{{ asset('img/descarga (2).jpg') }}" class="card-img-top" alt="Trivia 1">
             <div class="card-body">
               <h5 class="card-title text-center">Trivia 1</h5>
               <button class="btn btn-play w-100">Jugar</button>
@@ -27,7 +27,7 @@
         <!-- Tarjeta 2 -->
         <div class="col-lg-4 col-md-6">
           <div class="card">
-            <img src="img/descarga.jpeg" class="card-img-top" alt="Trivia 2">
+            <img src="{{ asset('img/descarga.jpeg') }}" class="card-img-top" alt="Trivia 2">
             <div class="card-body">
               <h5 class="card-title text-center">Trivia 2</h5>
               <button class="btn btn-play w-100">Jugar</button>
@@ -37,7 +37,7 @@
         <!-- Tarjeta 3 -->
         <div class="col-lg-4 col-md-6">
           <div class="card">
-            <img src="img/Baixar banner com espaço sideral_ gratuitamente.jpeg" class="card-img-top" alt="Trivia 3">
+            <img src="{{ asset('img/Baixar banner com espaço sideral_ gratuitamente.jpeg') }}" class="card-img-top" alt="Trivia 3">
             <div class="card-body">
               <h5 class="card-title text-center">Trivia 3</h5>
               <button class="btn btn-play w-100">Jugar</button>
@@ -52,7 +52,7 @@
     <div class="social-icons">
       <i class="fa-brands fa-instagram"></i>
       <i class="fa-brands fa-tiktok"></i>
-      <img src="img/DesarrolloWeb.png" class="logo-footer" alt="Logo" height="50">
+      <img src="{{ asset('img/Baixar banner com espaço sideral_ gratuitamente.jpeg') }}" class="logo-footer" alt="Logo" height="50">
     </div>
   </footer>
 
