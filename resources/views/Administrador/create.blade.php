@@ -8,13 +8,14 @@
   <div class="form-center-container">
     <div class="form-container text-center">
       <h3>Crear Administrador</h3>
-      <form>
+      <form method="POST" action="{{ route('administradores.store') }}">
+        @csrf
           <div class="form-floating mb-3 w-100">
-            <input type="text" class="form-control" placeholder="Ingrese el nombre de usuario">
+            <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre de usuario" value="{{ old('nombre') }}">
             <label for="floatingUser">Ingrese su usuario</label>
           </div>
           <div class="form-floating mb-3 w-100">
-            <input type="password" class="form-control" placeholder="Ingrese una contraseña">
+            <input type="password" name="contrasena" class="form-control" placeholder="Ingrese una contraseña">
             <label for="floatingPassword">Ingrese su contraseña</label>
           </div>
         <div class="w-100 d-flex justify-content-end">
@@ -22,4 +23,5 @@
         </div>
       </form>
     </div>
+@endsection
 

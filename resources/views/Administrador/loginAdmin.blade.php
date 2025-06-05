@@ -29,6 +29,7 @@
       <div class=" col-md-6 d-none d-md-block image-side m-0"></div>
     </div>
   </div>
+  @endsection
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Inicializador de DataTables -->
     <script>
