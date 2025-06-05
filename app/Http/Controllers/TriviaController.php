@@ -84,17 +84,21 @@ class TriviaController extends Controller
      */
     public function destroy(string $id)
     {
-        try {
-            DB::beginTransaction();
-            $trivia = Trivia::findOrFail($id);
-            $trivia->delete();
-
-            DB::commit();
-        } catch (Exception $e) {
-            DB::rollBack();
-            return redirect()->back()->withErrors(['error' => 'Error al eliminar trivia']);
+        $message = "";
+        $trivia = Trivia::find($id);
+        if ($trivia->estado==1){
+            Trivia::where('id', $trivia->id)
+            ->update([
+                'estado' => 0
+            ]);
+            $message = 'Trivia eliminada';
+        } else{
+            Trivia::where('id', $trivia->id)
+            ->update([
+                'estado' => 1
+            ]);
+            $message = 'Trivia restaurada';
         }
-
-        return redirect()->route('trivias.index')->with('success', 'Trivia eliminada');
+        return redirect()->route('trivias.index')->with('success', $message);
     }
 }
