@@ -4,7 +4,7 @@ use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('Trivia.HomeTrivia');
+    return view('LoginUsuario');
 });
 
 Route::resources([
