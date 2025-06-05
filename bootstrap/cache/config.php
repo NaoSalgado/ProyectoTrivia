@@ -158,8 +158,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\ProyectoTrivia\\storage\\framework/cache/data',
-        'lock_path' => 'C:\\ProyectoTrivia\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\framework/cache/data',
+        'lock_path' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -229,7 +229,7 @@
         'port' => '3306',
         'database' => 'proyecto_trivia',
         'username' => 'root',
-        'password' => '',
+        'password' => 'root',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -249,7 +249,7 @@
         'port' => '3306',
         'database' => 'proyecto_trivia',
         'username' => 'root',
-        'password' => '',
+        'password' => 'root',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -269,7 +269,7 @@
         'port' => '3306',
         'database' => 'proyecto_trivia',
         'username' => 'root',
-        'password' => '',
+        'password' => 'root',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -284,7 +284,7 @@
         'port' => '3306',
         'database' => 'proyecto_trivia',
         'username' => 'root',
-        'password' => '',
+        'password' => 'root',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -332,7 +332,7 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\ProyectoTrivia\\storage\\app/private',
+        'root' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\app/private',
         'serve' => true,
         'throw' => false,
         'report' => false,
@@ -340,7 +340,7 @@
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\ProyectoTrivia\\storage\\app/public',
+        'root' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\app/public',
         'url' => 'http://proyectotrivia.test/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -362,7 +362,7 @@
     ),
     'links' => 
     array (
-      'C:\\ProyectoTrivia\\public\\storage' => 'C:\\ProyectoTrivia\\storage\\app/public',
+      'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\public\\storage' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\app/public',
     ),
   ),
   'logging' => 
@@ -387,14 +387,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\ProyectoTrivia\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\ProyectoTrivia\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -459,7 +459,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\ProyectoTrivia\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -537,7 +537,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\ProyectoTrivia\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -632,7 +632,7 @@
     'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\ProyectoTrivia\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -759,9 +759,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\ProyectoTrivia\\resources\\views',
+      0 => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\resources\\views',
     ),
-    'compiled' => 'C:\\ProyectoTrivia\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\coghi\\Herd\\ProyectoTrivia-Coghi23\\storage\\framework\\views',
   ),
   'tinker' => 
   array (

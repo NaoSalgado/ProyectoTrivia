@@ -3,7 +3,7 @@
 @section('title', 'Administradores')
 
 @push('css')
-    <link href="{{ asset('/css/HomeTrivia.css') }}" rel="stylesheet" />
+    <link href="{{ asset('../public/css/HomeTrivia.css') }}" rel="stylesheet" />
 @endpush
 
 @section('content')

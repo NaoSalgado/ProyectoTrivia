@@ -1,0 +1,78 @@
+body{
+  background-image: url("img/pyr.jpg") !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+.pregunta {
+  color: black;
+  border-radius: 12px;
+  padding: 2%;
+  font-weight: bold;
+  font-size: 23px;
+  text-align: center;
+  background-color: white;
+}
+
+.btn-opcion {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.preg1{
+  background-color: #C11D7D !important;
+  margin-right: 3% !important;
+}
+
+.preg1:hover{
+  background-color: #991763 !important;
+  color: #b1b1b1 !important;
+}
+
+.preg2{
+  background-color: #11C1D4;
+}
+
+.preg2:hover{
+  background-color: #0f909e;
+  color: #b1b1b1 !important;
+}
+
+.preg3{
+  background-color: #F38B4E;
+  
+}
+
+.preg3:hover{
+  background-color: #c46e3d;
+  color: #b1b1b1 !important;
+}
+
+.preg4{
+  background-color: #6A4BBE;
+}
+
+.preg4:hover{
+  background-color: #6A4BBE;
+  color: #b1b1b1 !important;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.principal{
+  margin-top: -10% !important;
+  margin-bottom: 10% !important;
+}
