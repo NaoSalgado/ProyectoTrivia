@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('respuesta', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcionRespuesta');
+            $table->string('descripcionrespuesta');
               $table->tinyInteger('estado')->default(1);
             $table->unsignedBigInteger('pregunta_id'); // Agrega la columna primero
             $table->timestamps();
