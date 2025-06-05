@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-use App\Models\Administrador;
+use App\Models\Administradore;
 use Illuminate\Http\Request;
 use Exception;
 use App\Http\Requests\StoreAdministradorRequest;
@@ -13,9 +13,9 @@ class AdministradorController extends Controller
 {
     public function index()
     {
-        $administrador = Administrador::all();
+        $administradores = Administradore::all();
 
-        return view('administrador.index', ['administrador' => $administrador]);
+        return view('administrador.index', compact('administradores'));
     }
 
     public function create()
@@ -23,28 +23,30 @@ class AdministradorController extends Controller
         return view('administrador.create');
     }
 
-    public function store(StoreAdministradorRequest $request)
+   public function store(StoreAdministradorRequest $request)
 {
     try {
         DB::beginTransaction();
+        Administradore::create($request->validated());
         DB::commit();
     } catch (Exception $e) {
         DB::rollBack();
-        return redirect()->back()->withErrors('Error al crear el administrador');
+        return redirect()->back()->withErrors('Error al crear el administrador: ' . $e->getMessage());
     }
 
     return redirect()->route('administrador.index')->with('success','Administrador creado correctamente');
 }
 
-    public function edit(Administrador $administrador)
+
+    public function edit(Administradore $administradore)
     {
         return view ('administrador.edit', compact('administrador'));
     }
 
-    public function update(UpdateAdministradorRequest $request, Administrador $administrador)
+    public function update(UpdateAdministradorRequest $request, Administradore $administradore)
 {
 
-    Administrador::where('id', $administrador->id)
+    Administradore::where('id', $administradore->id)
         ->update($request->validated());
 
     return redirect()->route('administrador.index')->with('success','Administrador editado');
@@ -53,10 +55,10 @@ class AdministradorController extends Controller
     public function destroy(string $id)
     {
         $message = '';
-        $administrador = Administrador::find($id);
-        if ($administrador->estado == 1)
+        $administradore = Administradore::find($id);
+        if ($administradore->estado == 1)
         {
-            Administrador::where('id',$administrador->id)
+            Administradore::where('id',$administradore->id)
             ->update([
                 'estado' => 0,
             ]);
@@ -65,7 +67,7 @@ class AdministradorController extends Controller
         }
         else
         {
-            Administrador::where('id',$administrador->id)
+            Administradore::where('id',$administradore->id)
             ->update([
                 'estado'=> 1
             ]);
