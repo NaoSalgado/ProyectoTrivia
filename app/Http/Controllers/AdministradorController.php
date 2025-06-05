@@ -15,7 +15,7 @@ class AdministradorController extends Controller
     {
         $administradores = Administradore::all();
 
-        return view('administrador.index', ['administradores' => $administradores]);
+        return view('administrador.index', compact('administradores'));
     }
 
     public function create()
@@ -23,7 +23,7 @@ class AdministradorController extends Controller
         return view('administrador.create');
     }
 
-    public function store(StoreAdministradorRequest $request)
+   public function store(StoreAdministradorRequest $request)
 {
     try {
         DB::beginTransaction();
@@ -31,11 +31,12 @@ class AdministradorController extends Controller
         DB::commit();
     } catch (Exception $e) {
         DB::rollBack();
-        return redirect()->back()->withErrors('Error al crear el administrador');
+        return redirect()->back()->withErrors('Error al crear el administrador: ' . $e->getMessage());
     }
 
     return redirect()->route('administrador.index')->with('success','Administrador creado correctamente');
 }
+
 
     public function edit(Administradore $administradore)
     {

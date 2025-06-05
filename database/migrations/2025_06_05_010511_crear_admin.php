@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Administradores', function (Blueprint $table) 
+        Schema::create('administradores', function (Blueprint $table) 
         {
             $table->id();
             $table->string('nombre', 80);
             $table->string('contrasena', 80);
             $table->tinyInteger('estado')->default(1);
+            $table->timestamps();
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Administradores');
+        Schema::dropIfExists('administradores');
     }
 };
