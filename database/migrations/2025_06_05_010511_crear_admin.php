@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Administrador', function (Blueprint $table) 
+        Schema::create('Administradores', function (Blueprint $table) 
         {
             $table->id();
             $table->string('nombre', 80);
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Administrador');
+        Schema::dropIfExists('Administradores');
     }
 };
