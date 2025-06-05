@@ -1,3 +1,4 @@
+
 @extends('template')
 
 @section('title', 'Crear Administrador')
@@ -36,4 +37,5 @@
       </form>
     </div>
 @endsection
+
 
