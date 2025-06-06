@@ -33,7 +33,7 @@
       z-index: 1;
     }
     .form-container {
-      background: rgba(255,255,255,0.7);
+      background-color: rgba(168, 168, 168, 0.495);
       border-radius: 20px;
       padding: 48px 32px 40px 32px;
       max-width: 700px;
