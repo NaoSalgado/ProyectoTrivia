@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class trivia extends Model
+class Trivia extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nombreTrivia', 'descripcionTrivia', 'estadoTrivia'];
+    
     public function preguntas(){
-        return $this->hasMany(Pregunta::class)->withTimestamps();
+        return $this->hasMany(Pregunta::class);
     }
 
-    public function participacion(){
-        return $this->hasMany(Participacion::class)->withTimestamps();
+    public function tablaClasificacion(){
+        return $this->hasOne(TablaClasificacion::class);
     }
 }
