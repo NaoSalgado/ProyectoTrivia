@@ -7,7 +7,7 @@ use App\Http\Controllers\RespuestaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('Administrador.create');
+    return view('LoginUsuario');
 });
 
 Route::resources([
