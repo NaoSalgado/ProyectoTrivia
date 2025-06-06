@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Pregunta extends Model
 {
     use hasFactory;
+    
+    protected $fillable = ['idTrivia', 'descripcionPregunta', 'puntaje'];
+
     public function trivias()
     {
-        //return $this->belongsTo(Trivia::class);
+        return $this->belongsTo(Trivia::class);
     }
 
     public function respuestas()
@@ -18,5 +21,4 @@ class Pregunta extends Model
         return $this->hasMany(Respuesta::class);
     }
 
-    protected $fillable = ['descripcion'];
 }

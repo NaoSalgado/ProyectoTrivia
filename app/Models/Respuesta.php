@@ -7,8 +7,9 @@ class Respuesta extends Model
 {
     use hasFactory;
     protected $fillable = [
-        'idpregunta',
-        'descripcionrespuesta',
+        'idPregunta',
+        'descripcionRespuesta',
+        'estadoRespuesta'
     ];
 
     public function pregunta()

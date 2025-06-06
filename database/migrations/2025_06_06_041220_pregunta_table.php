@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trivias', function (Blueprint $table) {
+        Schema::create('preguntas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreTrivia', 100)->unique();
-            $table->string('descripcionTrivia', 255)->nullable();
-            $table->tinyInteger('estadoTrivia')->default(1);
+            $table->foreignId('trivia_id')->constrained('trivias')->onDelete('cascade');
+            $table->string('descripcionPregunta', 100);
+            $table->integer('puntaje');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('trivia');
+        Schema::dropIfExists('pregunta');
     }
 };
