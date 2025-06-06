@@ -158,8 +158,9 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\framework/cache/data',
-        'lock_path' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\framework/cache/data',
+        'path' => 'C:\\ProyectoTrivia\\storage\\framework/cache/data',
+        'lock_path' => 'C:\\ProyectoTrivia\\storage\\framework/cache/data',
+
       ),
       'memcached' => 
       array (
@@ -332,7 +333,9 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\app/private',
+
+        'root' => 'C:\\ProyectoTrivia\\storage\\app/private',
+
         'serve' => true,
         'throw' => false,
         'report' => false,
@@ -340,7 +343,9 @@
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\app/public',
+
+        'root' => 'C:\\ProyectoTrivia\\storage\\app/public',
+
         'url' => 'http://proyectotrivia.test/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -362,7 +367,9 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\public\\storage' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\app/public',
+
+      'C:\\ProyectoTrivia\\public\\storage' => 'C:\\ProyectoTrivia\\storage\\app/public',
+
     ),
   ),
   'logging' => 
@@ -387,14 +394,18 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\logs/laravel.log',
+
+        'path' => 'C:\\ProyectoTrivia\\storage\\logs/laravel.log',
+
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\logs/laravel.log',
+
+        'path' => 'C:\\ProyectoTrivia\\storage\\logs/laravel.log',
+
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -459,7 +470,9 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\logs/laravel.log',
+
+        'path' => 'C:\\ProyectoTrivia\\storage\\logs/laravel.log',
+
       ),
     ),
   ),
@@ -537,7 +550,9 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\resources\\views/vendor/mail',
+
+        0 => 'C:\\ProyectoTrivia\\resources\\views/vendor/mail',
+
       ),
     ),
   ),
@@ -632,7 +647,9 @@
     'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\framework/sessions',
+
+    'files' => 'C:\\ProyectoTrivia\\storage\\framework/sessions',
+
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -759,9 +776,11 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\resources\\views',
+
+      0 => 'C:\\ProyectoTrivia\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\FAMILIAR\\Herd\\ProyectoTrivia\\storage\\framework\\views',
+    'compiled' => 'C:\\ProyectoTrivia\\storage\\framework\\views',
+
   ),
   'tinker' => 
   array (

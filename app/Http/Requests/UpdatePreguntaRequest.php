@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateAdministradorRequest extends FormRequest
+class UpdatePreguntaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,10 +21,8 @@ class UpdateAdministradorRequest extends FormRequest
      */
     public function rules(): array
     {
-        $administrador = $this->route('administrador');
         return [
-            'nombre' => 'required|string|max:80|unique:administradores,nombre,' . $administrador->id,
-            'contrasena'=> 'required|max:80'
+            //
         ];
     }
 }

@@ -1,3 +1,4 @@
+
 @extends('template')
 
 @section('title', 'Crear Administrador')
@@ -8,7 +9,19 @@
   <div class="form-center-container">
     <div class="form-container text-center">
       <h3>Crear Administrador</h3>
-      <form method="POST" action="{{ route('administradores.store') }}">
+
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+      <form method="post" action="{{ route('administrador.store') }}">
         @csrf
           <div class="form-floating mb-3 w-100">
             <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre de usuario" value="{{ old('nombre') }}">
@@ -24,4 +37,5 @@
       </form>
     </div>
 @endsection
+
 

@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('administradores', function (Blueprint $table) 
-        {
+        Schema::create('pregunta', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 80);
-            $table->string('contrasena', 80);
+            $table->string('descripcion');
+            $table->integer('puntaje');
             $table->tinyInteger('estado')->default(1);
+            $table->unsignedBigInteger('trivia_id'); // Agrega la columna primero
             $table->timestamps();
+
+            $table->foreign('trivia_id')->references('id')->on('trivia')->onDelete('cascade');
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('administradores');
+        Schema::dropIfExists('pregunta');
     }
 };

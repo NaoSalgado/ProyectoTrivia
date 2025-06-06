@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-use App\Models\Administrador;
+use App\Models\Administradore;
 use Illuminate\Http\Request;
 use Exception;
 use App\Http\Requests\StoreAdministradorRequest;
@@ -13,7 +13,7 @@ class AdministradorController extends Controller
 {
     public function index()
     {
-        $administrador = Administrador::all();
+        $administrador = Administradore::all();
 
         return view('administrador.index', ['administrador' => $administrador]);
     }
@@ -27,24 +27,25 @@ class AdministradorController extends Controller
 {
     try {
         DB::beginTransaction();
+        Administradore::create($request->validated());
         DB::commit();
     } catch (Exception $e) {
         DB::rollBack();
-        return redirect()->back()->withErrors('Error al crear el administrador');
+        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }
 
     return redirect()->route('administrador.index')->with('success','Administrador creado correctamente');
 }
 
-    public function edit(Administrador $administrador)
+    public function edit(Administradore $administrador)
     {
-        return view ('administrador.edit', compact('administrador'));
+        return view ('Administrador.edit', compact('administrador'));
     }
 
-    public function update(UpdateAdministradorRequest $request, Administrador $administrador)
+    public function update(UpdateAdministradorRequest $request, Administradore $administrador)
 {
 
-    Administrador::where('id', $administrador->id)
+    Administradore::where('id', $administrador->id)
         ->update($request->validated());
 
     return redirect()->route('administrador.index')->with('success','Administrador editado');
@@ -53,19 +54,17 @@ class AdministradorController extends Controller
     public function destroy(string $id)
     {
         $message = '';
-        $administrador = Administrador::find($id);
-        if ($administrador->estado == 1)
+        $Administrador = Administradore::find($id);
+        if ($Administrador->estado == 1)
         {
-            Administrador::where('id',$administrador->id)
-            ->update([
-                'estado' => 0,
-            ]);
+            Administradore::where('id',$Administrador->id)
+            ->delete();
 
             $message = 'Administrador eliminado';
         }
         else
         {
-            Administrador::where('id',$administrador->id)
+            Administradore::where('id',$Administrador->id)
             ->update([
                 'estado'=> 1
             ]);
