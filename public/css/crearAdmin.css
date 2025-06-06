@@ -1,24 +1,7 @@
-    body {
-      min-height: 100vh;
-      background: url('img/Fondo.jpeg') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
-    }
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(43,0,72,0.7);
-      z-index: 0;
-    }
-    .top-bar {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 40px 12px 40px;
-      border-bottom: 8px solid rgba(191, 4, 98, 0.619);
+
+
+    .btn-crear{
+      background-color:rgba(20, 193, 220, 0.35) !important; 
     }
 
     strong {

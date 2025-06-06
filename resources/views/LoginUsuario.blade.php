@@ -41,7 +41,7 @@
             <p class="text-white">
               Te saludamos desde Desarrollo Web, donde todo lo que puedas imaginar ¡lo puedes hacer!
             </p>
-            <button class="btn">Ver más</button>
+            <button class="btn text-white">Ver más</button>
           </div>
       
           <div class="col-md-2 d-none d-md-block">
@@ -66,13 +66,20 @@
                       {{ $errors->first() }}
                   </div>
                 @endif
-                <button type="submit" class="btn mt-5">EMPEZAR</button>
+                <button type="submit" class="btn mt-5 text-white">EMPEZAR</button>
               </form>
             </div>
           </div>
-      
-        </div>
+        </div> 
       </div>
+      <div class="text-end">
+        <a href="{{ route('administrador.index') }}" class="btn admin">
+          <i class="fa-solid fa-user text-white"></i>
+          <span class="text-white">Administrador</span>
+        </a>
+      </div>
+
+
 
 <!-- Inicializador de DataTables -->
     <script>
