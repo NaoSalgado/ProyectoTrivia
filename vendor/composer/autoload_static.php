@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit88970a0117c062eed55fa8728fc43833
+class ComposerStaticInitadb4b680144df947b976ddb89b6572b1
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -588,8 +588,22 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
     );
 
     public static $classMap = array (
+        'App\\Http\\Controllers\\AdministradorController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdministradorController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\TriviaController' => __DIR__ . '/../..' . '/app/Http/Controllers/TriviaController.php',
+        'App\\Http\\Controllers\\UsuarioController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsuarioController.php',
+        'App\\Http\\Requests\\StoreAdministradorRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreAdministradorRequest.php',
+        'App\\Http\\Requests\\StoreTriviaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreTriviaRequest.php',
+        'App\\Http\\Requests\\StoreUsuarioRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreUsuarioRequest.php',
+        'App\\Http\\Requests\\UpdateAdministradorRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateAdministradorRequest.php',
+        'App\\Http\\Requests\\UpdateTriviaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateTriviaRequest.php',
+        'App\\Http\\Requests\\UpdateUsuarioRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateUsuarioRequest.php',
+        'App\\Models\\Administrador' => __DIR__ . '/../..' . '/app/Models/Administrador.php',
+        'App\\Models\\Pregunta' => __DIR__ . '/../..' . '/app/Models/Pregunta.php',
+        'App\\Models\\Respuesta' => __DIR__ . '/../..' . '/app/Models/Respuesta.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\Usuario' => __DIR__ . '/../..' . '/app/Models/Usuario.php',
+        'App\\Models\\trivia' => __DIR__ . '/../..' . '/app/Models/trivia.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
@@ -7297,9 +7311,7 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'Termwind\\ValueObjects\\Node' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Node.php',
         'Termwind\\ValueObjects\\Style' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Style.php',
         'Termwind\\ValueObjects\\Styles' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Styles.php',
-        'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
-        'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
         'TheSeer\\Tokenizer\\NamespaceUriException' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUriException.php',
@@ -7482,9 +7494,9 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit88970a0117c062eed55fa8728fc43833::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit88970a0117c062eed55fa8728fc43833::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit88970a0117c062eed55fa8728fc43833::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitadb4b680144df947b976ddb89b6572b1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitadb4b680144df947b976ddb89b6572b1::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitadb4b680144df947b976ddb89b6572b1::$classMap;
 
         }, null, ClassLoader::class);
     }
