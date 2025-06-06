@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Trivia;
+use App\Models\Pregunta;
+use App\Models\Respuesta;
 use App\Http\Requests\StoreTriviaRequest;
 use App\Http\Requests\UpdateTriviaRequest;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +18,7 @@ class TriviaController extends Controller
      */
     public function index()
     {
-        $trivias = Trivia::all();
+        $trivias = Trivia::with('preguntas', 'respuestas')->latest()->get();
         return view('trivias.index', compact('trivias'));
     }
 
@@ -33,16 +35,46 @@ class TriviaController extends Controller
      */
     public function store(StoreTriviaRequest $request)
     {
-        try{
+        try {
             DB::beginTransaction();
-            $trivia = Trivia::create($request->validated());
 
+            $trivia = new Trivia();
+            $trivia->nombre = $request->nombre;
+            $trivia->descripcion = $request->descripcion;
+            $trivia->save();
+            //dd($trivia);
+            //dd('pasa');
+                //dd($request->preguntas);
+                //dd($request->all());
+            if ($request->has('preguntas')) {
+                foreach ($request->preguntas as $preguntaData) {
+                    $pregunta = new Pregunta();
+                    $pregunta->idTrivia = $trivia->id;
+                    $pregunta->descripcionPregunta = $preguntaData['descripcion'];
+                    $pregunta->puntaje = $preguntaData['puntaje'];
+                    $pregunta->save();
+                    if (isset($preguntaData['respuestas'])) {
+                        foreach ($preguntaData['respuestas'] as $respuestaData) {
+                            $respuesta = new Respuesta();
+                            $respuesta->idPregunta = $pregunta->id;
+                            $respuesta->descripcionRespuesta = $respuestaData['descripcion'];
+                            $respuesta->estadoRespuesta = $respuestaData['estado'];
+                            $respuesta->save();
+                        }
+                    }
+                }
+            }
+            
             DB::commit();
+            return redirect()->route('trivias.index')->with('success', 'Trivia creada exitosamente.');
+
         } catch (Exception $e) {
             DB::rollBack();
+            return redirect()->back()
+        ->withErrors(['error' => 'Ocurrió un error al guardar la trivia: ' . $e->getMessage()])
+        ->withInput();
+            //return redirect()->back()->withErrors(['error' => 'Ocurrió un error al guardar la trivia.'])->withInput();
         }
-
-        return redirect()->route('trivias.index')->with('success', 'Trivia registrada');
     }
 
     /**
@@ -86,7 +118,7 @@ class TriviaController extends Controller
     {
         $message = "";
         $trivia = Trivia::find($id);
-        if ($trivia->estado==1){
+        if ($trivia->estadoTriva==1){
             Trivia::where('id', $trivia->id)
             ->update([
                 'estado' => 0

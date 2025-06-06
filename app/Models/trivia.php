@@ -9,7 +9,7 @@ class Trivia extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombreTrivia', 'descripcionTrivia', 'estadoTrivia'];
+    protected $fillable = ['nombre', 'descripcion', 'estadoTrivia'];
     
     public function preguntas(){
         return $this->hasMany(Pregunta::class);

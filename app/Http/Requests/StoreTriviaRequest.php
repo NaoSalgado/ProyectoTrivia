@@ -22,7 +22,8 @@ class StoreTriviaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre' => 'required|max:80',
+            'descripcion'=> 'required|max:80'
         ];
     }
 }
