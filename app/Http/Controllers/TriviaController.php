@@ -19,7 +19,7 @@ class TriviaController extends Controller
     public function index()
     {
         $trivias = Trivia::with('preguntas', 'respuestas')->latest()->get();
-        return view('trivias.index', compact('trivias'));
+        return view('trivia.index', compact('trivias'));
     }
 
     /**
@@ -27,7 +27,7 @@ class TriviaController extends Controller
      */
     public function create()
     {
-        return view('trivias.create');
+        return view('trivia.create');
     }
 
     /**
@@ -49,16 +49,16 @@ class TriviaController extends Controller
             if ($request->has('preguntas')) {
                 foreach ($request->preguntas as $preguntaData) {
                     $pregunta = new Pregunta();
-                    $pregunta->idTrivia = $trivia->id;
-                    $pregunta->descripcionPregunta = $preguntaData['descripcion'];
+                    $pregunta->trivia_id = $trivia->id;
+                    $pregunta->descripcion = $preguntaData['descripcion'];
                     $pregunta->puntaje = $preguntaData['puntaje'];
                     $pregunta->save();
                     if (isset($preguntaData['respuestas'])) {
                         foreach ($preguntaData['respuestas'] as $respuestaData) {
                             $respuesta = new Respuesta();
-                            $respuesta->idPregunta = $pregunta->id;
+                            $respuesta->pregunta_id = $pregunta->id;
                             $respuesta->descripcionRespuesta = $respuestaData['descripcion'];
-                            $respuesta->estadoRespuesta = $respuestaData['estado'];
+                            $respuesta->estado = $respuestaData['estado'];
                             $respuesta->save();
                         }
                     }
@@ -90,7 +90,7 @@ class TriviaController extends Controller
      */
     public function edit(Trivia $trivia)
     {
-        return view('trivias.edit', compact('trivia'));
+        return view('trivia.edit', compact('trivia'));
     }
 
     /**
@@ -108,7 +108,7 @@ class TriviaController extends Controller
             return redirect()->back()->withErrors(['error' => 'Error al actualizar trivia']);
         }
 
-        return redirect()->route('trivias.index')->with('success', 'Trivia actualizada');
+        return redirect()->route('trivia.index')->with('success', 'Trivia actualizada');
     }
 
     /**
@@ -131,6 +131,6 @@ class TriviaController extends Controller
             ]);
             $message = 'Trivia restaurada';
         }
-        return redirect()->route('trivias.index')->with('success', $message);
+        return redirect()->route('trivia.index')->with('success', $message);
     }
 }

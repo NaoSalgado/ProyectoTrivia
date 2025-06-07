@@ -9,13 +9,30 @@ class Trivia extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'descripcion', 'estadoTrivia'];
+    protected $table = 'trivias'; 
+    protected $fillable = ['nombre', 'descripcion', 'estado'];
     
-    public function preguntas(){
-        return $this->hasMany(Pregunta::class);
+    public function preguntas()
+    {
+        return $this->hasMany(Pregunta::class, 'trivia_id');
     }
 
-    public function tablaClasificacion(){
+    // Relación para respuestas a través de preguntas
+    public function respuestas()
+    {
+        return $this->hasManyThrough(
+            Respuesta::class,
+            Pregunta::class,
+            'trivia_id',    // Foreign key on preguntas table...
+            'pregunta_id',  // Foreign key on respuestas table...
+            'id',           // Local key on trivias table...
+            'id'            // Local key on preguntas table...
+        );
+    }
+
+    public function tablaClasificacion()
+    {
         return $this->hasOne(TablaClasificacion::class);
     }
 }
+

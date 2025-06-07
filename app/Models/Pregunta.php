@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pregunta extends Model
 {
-    use hasFactory;
+    use HasFactory;
     
-    protected $fillable = ['idTrivia', 'descripcionPregunta', 'puntaje'];
+    protected $fillable = ['trivia_id', 'descripcionPregunta', 'puntaje', 'estado'];
 
-    public function trivias()
+    public function trivia()
     {
-        return $this->belongsTo(Trivia::class);
+        return $this->belongsTo(Trivia::class, 'trivia_id');
     }
 
     public function respuestas()
     {
-        return $this->hasMany(Respuesta::class);
+        return $this->hasMany(Respuesta::class, 'pregunta_id');
     }
 
 }

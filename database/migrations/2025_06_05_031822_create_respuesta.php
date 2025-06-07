@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('respuesta', function (Blueprint $table) {
+        Schema::create('respuestas', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcionrespuesta');
-              $table->tinyInteger('estado')->default(1);
+            $table->string('descripcionRespuesta');
+            $table->tinyInteger('estado')->default(1);
             $table->unsignedBigInteger('pregunta_id'); // Agrega la columna primero
             $table->timestamps();
 
-            $table->foreign('pregunta_id')->references('id')->on('pregunta')->onDelete('cascade');
+            $table->foreign('pregunta_id')->references('id')->on('preguntas')->onDelete('cascade');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('respuesta');
+        Schema::dropIfExists('respuestas');
     }
 };
