@@ -8,16 +8,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    return view('loginAdmin');
+    return view('trivia.create');
 });
 
 Route::post('/admin/login', [App\Http\Controllers\AdministradorController::class, 'login'])->name('admin.login');
 
-    return view('LoginUsuario');
-});
+Route::view('/loginAdmin', 'loginAdmin' );
 
 Route::get('/trivia', [TriviaController::class, 'mostrarTrivias'])->name('usuarios.trivia');
-
 
 
 Route::resources([

@@ -66,7 +66,7 @@ class TriviaController extends Controller
             }
             
             DB::commit();
-            return redirect()->route('trivias.index')->with('success', 'Trivia creada exitosamente.');
+            return redirect()->route('usuarios.trivia')->with('success', 'Trivia creada exitosamente.');
 
         } catch (Exception $e) {
             DB::rollBack();

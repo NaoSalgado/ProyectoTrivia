@@ -91,7 +91,7 @@
 
   <!-- Botón administrador fijo en esquina inferior derecha -->
   <div class="position-absolute bottom-0 end-0 m-3">
-    <a href="{{ route('administrador.index') }}" class="btn admin">
+    <a href="{{ asset('loginAdmin') }}" class="btn admin">
       <i class="fa-solid fa-user text-white"></i>
       <span class="text-white">Administrador</span>
     </a>
