@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Pregunta extends Model
+class Participacion extends Model
 {
     use HasFactory;
-    
-    protected $fillable = ['trivia_id', 'descripcionPregunta', 'puntaje', 'estado'];
+
+    protected $fillable = ['idUsuario', 'puntajeObtenido', 'estadoParticipacion', 'usuario_id', 'trivia_id'];
 
     public function trivia()
     {
         return $this->belongsTo(Trivia::class, 'trivia_id');
     }
 
-    public function respuestas()
+    public function usuario()
     {
-        return $this->hasMany(Respuesta::class, 'pregunta_id');
+        return $this->belongsTo(Usuario::class, 'idUsuario');
     }
 
 }

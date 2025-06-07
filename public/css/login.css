@@ -11,6 +11,7 @@ body{
     height: 100%;
 }
 
+
 .container-fluid {
     background-color: #ff967038 !important;
     padding-left: 3%;
@@ -44,6 +45,7 @@ body{
     background-color: #c27255 !important;
 }
 
+
 .titulo{
     color: #FFFFFF;
 }
@@ -71,4 +73,13 @@ body{
     width: 30px !important;
     margin-top: 10% !important;
     margin-right: 3%;
+}
+
+.admin{
+    background-color:rgba(20, 193, 220, 0.35) !important; 
+   
+}
+.admin:hover {
+    background-color:rgba(20, 193, 220, 0.799) !important; 
+    color: white !important;
 }

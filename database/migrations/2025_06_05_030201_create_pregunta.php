@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pregunta', function (Blueprint $table) {
+        Schema::create('preguntas', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
             $table->integer('puntaje');
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('trivia_id'); // Agrega la columna primero
             $table->timestamps();
 
-            $table->foreign('trivia_id')->references('id')->on('trivia')->onDelete('cascade');
+            $table->foreign('trivia_id')->references('id')->on('trivias')->onDelete('cascade');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pregunta');
+        Schema::dropIfExists('preguntas');
     }
 };

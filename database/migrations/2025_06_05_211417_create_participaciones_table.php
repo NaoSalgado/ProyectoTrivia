@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('respuestas', function (Blueprint $table) {
+        Schema::create('participaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcionRespuesta');
+            $table->foreignId('usuario_id')->unique()->constrained('usuarios')->onDelete('cascade');
+            $table->foreignId('trivia_id')->unique()->constrained('trivias')->onDelete('cascade');
+            $table->integer('PuntajeObt')->default(0);
             $table->tinyInteger('estado')->default(1);
-            $table->unsignedBigInteger('pregunta_id'); // Agrega la columna primero
             $table->timestamps();
-
-            $table->foreign('pregunta_id')->references('id')->on('preguntas')->onDelete('cascade');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('respuestas');
+        Schema::dropIfExists('participaciones');
     }
 };

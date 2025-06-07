@@ -22,7 +22,15 @@ class StoreTriviaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre' => 'required|max:80',
+            'descripcion'=> 'required|max:80',
+            'preguntas' => 'required|array',
+            'preguntas.*.descripcion' => 'required|string|max:255',
+            'preguntas.*.puntaje' => 'required|integer',
+            'preguntas.*.respuestas' => 'required|array',
+            'preguntas.*.respuestas.*.descripcion' => 'required|string',
+            'preguntas.*.respuestas.*.estado' => 'required|in:0,1',
         ];
     }
+
 }

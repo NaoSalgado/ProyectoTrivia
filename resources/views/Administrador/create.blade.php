@@ -9,18 +9,6 @@
   <div class="form-center-container">
     <div class="form-container text-center">
       <h3>Crear Administrador</h3>
-
-      @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-
       <form method="post" action="{{ route('administrador.store') }}">
         @csrf
           <div class="form-floating mb-3 w-100">
