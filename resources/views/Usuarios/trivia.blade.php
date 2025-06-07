@@ -15,9 +15,15 @@
         <img src="{{ asset('img/Fondo3.jpeg') }}" class="card-img-top" alt="Imagen trivia">
         <div class="card-body">
           <h5 class="card-title text-center">{{ $trivia->nombre }}</h5>
-          <form method="GET" action="{{ route('trivias.show', $trivia->id) }}">
-            <button class="btn btn-play w-100">Jugar</button>
-          </form>
+          @if(auth()->check())
+            <form method="GET" action="{{ route('trivias.show', ['trivia' => $trivia->id, 'usuario' => auth()->user()->id]) }}">
+              <button class="btn btn-play w-100">Jugar</button>
+            </form>
+          @else
+            <div class="alert alert-warning text-center">
+              Debes iniciar sesión para jugar.
+            </div>
+          @endif
         </div>
       </div>
     </div>
