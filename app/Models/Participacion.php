@@ -9,11 +9,11 @@ class Participacion extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['idUsuario', 'puntajeObtenido', 'estadoParticipacion'];
+    protected $fillable = ['idUsuario', 'puntajeObtenido', 'estadoParticipacion', 'usuario_id', 'trivia_id'];
 
-    public function tablaClasificacion()
+    public function trivia()
     {
-        return $this->hasMany(TablaClasificacion::class, 'idTablaClasificacion');
+        return $this->belongsTo(Trivia::class, 'trivia_id');
     }
 
     public function usuario()
