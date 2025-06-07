@@ -56,7 +56,7 @@
     
     .image-side {
       min-height: 100vh;
-      background-image: url('img/Fondo.jpeg');
+      background-image: url('/img/Fondo.jpeg');
       background-size: cover;
       background-position: center;
     }
@@ -78,7 +78,6 @@
     .login-avatar {
       width: 200px;
       height: 200px;
-      border-radius: 50%;
       object-fit: contain;
     }
     
