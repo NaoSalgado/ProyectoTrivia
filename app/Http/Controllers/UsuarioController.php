@@ -42,7 +42,7 @@ class UsuarioController extends Controller
         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }
 
-    return redirect()->route('usuarios.index')->with('success', '¡Suerte en la trivia!');
+    return redirect()->route('usuarios.trivia')->with('success', '¡Suerte en la trivia!');
 }
 
     /**
