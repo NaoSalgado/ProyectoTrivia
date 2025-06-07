@@ -74,7 +74,26 @@ class AdministradorController extends Controller
         return redirect()->route('administrador.index')->with('success',$message);
     }
 
+    public function login(Request $request)
+{
+    $request->validate([
+        'nombre' => 'required',
+        'contrasena' => 'required'
+    ]);
 
+    $admin = Administradore::where('nombre', $request->nombre)
+        ->where('contrasena', $request->contrasena)
+        ->where('estado', 1)
+        ->first();
+
+    if ($admin) {
+        
+        session(['admin_id' => $admin->id]);
+        return view('Administrador.homeAdministrador');
+    } else {
+        return back()->withErrors(['login' => 'Usuario o contraseña incorrectos']);
+    }
+}
 
 
 }
