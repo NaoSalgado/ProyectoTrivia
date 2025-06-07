@@ -133,4 +133,10 @@ class TriviaController extends Controller
         }
         return redirect()->route('trivia.index')->with('success', $message);
     }
+
+    public function mostrarTrivias()
+    {
+        $trivias = Trivia::where('estado', 1)->get();
+        return view('usuarios.trivia', compact('trivias'));
+    }
 }
