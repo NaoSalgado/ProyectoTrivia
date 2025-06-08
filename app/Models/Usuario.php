@@ -11,7 +11,7 @@ class Usuario extends Model
     
     public function participaciones()
     {
-        return $this->hasMany(Participacione::class);
+        return $this->hasMany(Participacion::class);
     }
 
     protected $fillable = ['nombre'];

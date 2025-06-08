@@ -32,18 +32,20 @@ class UsuarioController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreUsuarioRequest $request)
-{
-    try {
-        DB::beginTransaction();
-        Usuario::create($request->validated());
-        DB::commit();
-    } catch (Exception $e) {
-        DB::rollBack();
-        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-    }
+    {
+        try {
+            DB::beginTransaction();
+            $usuario = Usuario::create($request->validated());
+            // Guarda el usuario en sesión
+            session(['usuario_id' => $usuario->id]);
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
 
-    return redirect()->route('usuarios.trivia')->with('success', '¡Suerte en la trivia!');
-}
+        return redirect()->route('usuarios.trivia')->with('success', '¡Suerte en la trivia!');
+    }
 
     /**
      * Display the specified resource.
