@@ -2,11 +2,11 @@
 
 @section('title', 'Editar Administrador')
 @push('css')
-    <link href="{{ asset('css/crearAdmin.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/editarAdmin.css') }}" rel="stylesheet" />
 @endpush
 @section('content')
   <div class="form-center-container">
-    <div class="form-container text-center">
+    <div class="form-container text-center" style="background: rgba(255,255,255,0.15); max-width: 700px; width: 100%; margin: 40px auto; border-radius: 20px;">
       <h3>Editar Administrador</h3>
       <form method="post" action="{{ route('administrador.update', ['administrador' => $administrador]) }}" >
         @method('PATCH')
@@ -21,7 +21,8 @@
             value="{{old('contrasena',$administrador->contrasena)}}"placeholder="Ingrese una contraseña">
             <label for="floatingPassword">Ingrese su contraseña</label>
           </div>
-        <div class="w-100 d-flex justify-content-end">
+        <div class="w-100 d-flex justify-content-between">
+          <a href="{{ route('administrador.index') }}" class="btn btn-accept">CANCELAR</a>
           <button type="submit" class="btn btn-accept">ACEPTAR</button>
         </div>
       </form>
