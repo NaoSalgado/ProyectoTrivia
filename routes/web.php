@@ -24,6 +24,17 @@ Route::post('trivia/{trivia}/responder', [TriviaController::class, 'responder'])
 // Tabla de resultados
 Route::get('/tabla/resultados', [TriviaController::class, 'mostrarTablaResultados'])->name('tabla.resultados');
 
+Route::get('/homeAdministrador', function () {
+    return view('Administrador.homeAdministrador');
+})->name('homeAdministrador');
+
+
+
+Route::get('/gestion', [TriviaController::class, 'gestionTrivias'])->name('trivia.gestion');
+
+Route::get('/trivias/edit', [TriviaController::class, 'edit'])->name('trivia.edit');
+
+Route::get('/trivias/crear', [TriviaController::class, 'create'])->name('trivia.create');
 // Recursos RESTful
 Route::resources([
     'usuarios' => UsuarioController::class,

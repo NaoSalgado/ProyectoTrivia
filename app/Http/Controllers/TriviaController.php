@@ -177,11 +177,11 @@ class TriviaController extends Controller
         return view('usuarios.trivia', compact('trivias'));
     }
 
-    public function gestionTrivias()
-    {
-        $trivias = Trivia::where('estado', 1)->get();
-        return view('trivia.gestion', compact('trivias'));
-    }
+public function gestionTrivias()
+{
+    $trivias = Trivia::where('estado', 1)->get();
+    return view('trivia.gestion', compact('trivias'));
+}
 
 
     public function jugar(Request $request, $trivia_id)

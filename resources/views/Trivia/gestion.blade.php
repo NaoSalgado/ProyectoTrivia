@@ -24,7 +24,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ $trivia->nombre }}</h5>
                         <div class="d-flex justify-content-around mt-3">
-                            <a href="{{ route('trivia.edit', ['trivia' => $trivia->id]) }}" class="btn" style="background-color:#603C9D !important; color: #ffffff;">Editar</a>
+                            <a href="{{ route('trivias.edit', ['trivia' => $trivia->id]) }}" class="btn" style="background-color:#603C9D !important; color: #ffffff;">Editar</a>
                             <button type="button" class="btn" style="background-color:#603C9D !important; color: #ffffff;" data-bs-toggle="modal" data-bs-target="#modalTriviaEliminar-{{ $trivia->id }}">
                                 Eliminar
                             </button>
@@ -45,7 +45,7 @@
                             </div>
                             <p class="modal-text">¿Desea eliminar la trivia?</p>
                             <div class="btn-group-custom">
-                                <form action="{{ route('trivia.destroy', ['trivia' => $trivia->id]) }}" method="POST" style="display: inline;">
+                                <form action="{{ route('trivias.destroy', ['trivia' => $trivia->id]) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-custom">Sí</button>

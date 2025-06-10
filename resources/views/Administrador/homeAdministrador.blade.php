@@ -20,10 +20,17 @@
           <i class="fas fa-users fa-2x"></i>
           <span>Gestión de<br>Jugadores</span>
         </a>
-        <a href="{{ route(name: 'trivia.gestion') }}" class="sidebar-item text-center">
+        <a href="{{ route('trivia.gestion') }}" class="sidebar-item text-center">
           <i class="fas fa-clipboard-question fa-2x"></i>
           <span>Gestión de<br>Trivias</span>
         </a>
+
+        <div class="position-absolute bottom-0 start-3 m-3">
+          <a href="{{ asset('LoginUsuario') }}" class="btn volver">
+              <i class="fa-solid fa-arrow-left text-white"></i>
+              <span class="text-white">Volver</span>
+          </a>
+        </div>
       </div>
 
       <!-- Main Content -->
