@@ -97,20 +97,64 @@ class TriviaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTriviaRequest $request, Trivia $trivia)
-    {
-        try {
-            DB::beginTransaction();
-            $trivia->update($request->validated());
+    public function update(UpdateTriviaRequest $request, $id)
+{
+    try {
+        DB::beginTransaction();
 
-            DB::commit();
-        } catch (Exception $e) {
-            DB::rollBack();
-            return redirect()->back()->withErrors(['error' => 'Error al actualizar trivia']);
+        $trivia = Trivia::findOrFail($id);
+        $trivia->nombre = $request->nombre;
+        $trivia->descripcion = $request->descripcion;
+        $trivia->save();
+
+        if ($request->has('preguntas')) {
+            foreach ($request->preguntas as $preguntaData) {
+                if (isset($preguntaData['id'])) {
+                    $pregunta = Pregunta::where('id', $preguntaData['id'])->where('trivia_id', $trivia->id)->first();
+                    if ($pregunta) {
+                        $pregunta->descripcion = $preguntaData['descripcion'];
+                        $pregunta->puntaje = $preguntaData['puntaje'];
+                        $pregunta->save();
+                    }
+                } else {
+                    $pregunta = new Pregunta();
+                    $pregunta->trivia_id = $trivia->id;
+                    $pregunta->descripcion = $preguntaData['descripcion'];
+                    $pregunta->puntaje = $preguntaData['puntaje'];
+                    $pregunta->save();
+                }
+
+                if (isset($preguntaData['respuestas'])) {
+                    foreach ($preguntaData['respuestas'] as $respuestaData) {
+                        if (isset($respuestaData['id'])) {
+                            $respuesta = Respuesta::where('id', $respuestaData['id'])->where('pregunta_id', $pregunta->id)->first();
+                            if ($respuesta) {
+                                $respuesta->descripcionRespuesta = $respuestaData['descripcion'];
+                                $respuesta->estado = $respuestaData['estado'];
+                                $respuesta->save();
+                            }
+                        } else {
+                            $respuesta = new Respuesta();
+                            $respuesta->pregunta_id = $pregunta->id;
+                            $respuesta->descripcionRespuesta = $respuestaData['descripcion'];
+                            $respuesta->estado = $respuestaData['estado'];
+                            $respuesta->save();
+                        }
+                    }
+                }
+            }
         }
 
-        return redirect()->route('trivia.index')->with('success', 'Trivia actualizada');
+        DB::commit();
+        return redirect()->route('trivia.gestion')->with('success', 'Trivia actualizada exitosamente.');
+
+    } catch (Exception $e) {
+        DB::rollBack();
+        return redirect()->back()
+            ->withErrors(['error' => 'Ocurrió un error al actualizar la trivia: ' . $e->getMessage()])
+            ->withInput();
     }
+}
 
     /**
      * Remove the specified resource from storage.
