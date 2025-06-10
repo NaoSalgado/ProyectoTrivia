@@ -81,3 +81,11 @@
       object-fit: contain;
     }
     
+    .volver{
+    background-color:rgba(20, 193, 220, 0.35) !important; 
+   
+    }
+    .volver:hover {
+        background-color:rgba(20, 193, 220, 0.799) !important; 
+        color: white !important;
+    }

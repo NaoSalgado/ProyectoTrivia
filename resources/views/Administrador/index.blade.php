@@ -13,8 +13,8 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="text-white mb-0">Gestión de Administradores</h2>
             <div class="d-flex gap-2">
-                <a href="{{ asset('.') }}" class="btn btn-crear" style="background-color:#603C9D !important; color: #ffffff;">
-                    <i class="fa-solid fa-arrow-left"></i> Regresar al Login
+                <a href="{{ route('homeAdministrador') }}" class="btn btn-crear" style="background-color:#603C9D !important; color: #ffffff;">
+                    <i class="fa-solid fa-arrow-left"></i> Regresar al home
                 </a>
                 <a href="{{ route('administrador.create') }}" class="btn btn-crear" style="background-color:#603C9D !important;">
                     <i class="fa-solid fa-plus" style="color: #ffffff;"></i>

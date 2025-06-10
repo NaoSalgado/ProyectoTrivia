@@ -6,16 +6,16 @@ body {
 }
 
 .formulario-container {
-  height: 100vh;
+  min-height: calc(90vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  margin-top: -5%;
+  margin-top: 5px;
 }
 
 .formulario {
-  background-color: rgba(255, 255, 255, 0.536);
+  background-color: #2B0048A1 ;
   backdrop-filter: blur(6px);
   border-radius: 16px;
   color: #f1f1f1;
@@ -59,6 +59,7 @@ body {
   border-radius: 8px;
   padding: 0.6rem 2rem;
   transition: background-color 0.3s ease;
+  padding: 8px 32px;
 }
 
 .btn-enviar:hover {

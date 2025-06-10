@@ -12,7 +12,7 @@
   @forelse ($trivias as $trivia)
     <div class="col-lg-4 col-md-6">
       <div class="card">
-        <img src="{{ asset('img/Fondo3.jpeg') }}" class="card-img-top" alt="Imagen trivia">
+        <img src="{{ asset('img/3.jpg') }}" class="card-img-top" alt="Imagen trivia">
         <div class="card-body">
           <h5 class="card-title text-center">{{ $trivia->nombre }}</h5>
             <form method="GET" action="{{ route('trivia.jugar', ['trivia' => $trivia->id]) }}">

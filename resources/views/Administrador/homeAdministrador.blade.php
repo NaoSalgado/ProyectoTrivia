@@ -20,7 +20,7 @@
           <i class="fas fa-users fa-2x"></i>
           <span>Gestión de<br>Jugadores</span>
         </a>
-        <a href="" class="sidebar-item text-center">
+        <a href="{{ route(name: 'trivia.gestion') }}" class="sidebar-item text-center">
           <i class="fas fa-clipboard-question fa-2x"></i>
           <span>Gestión de<br>Trivias</span>
         </a>

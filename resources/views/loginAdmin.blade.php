@@ -60,6 +60,14 @@
     </div>
   </div>
 
+
+    <div class="position-absolute bottom-0 start-0 m-3">
+        <a href="{{ ASSET('.') }}" class="btn volver">
+            <i class="fa-solid fa-arrow-left text-white"></i>
+            <span class="text-white">Volver</span>
+        </a>
+    </div>
+
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>

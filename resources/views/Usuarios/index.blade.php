@@ -12,6 +12,9 @@
     <div class="p-4 shadow tabla-usuarios" style="background: rgba(255,255,255,0.15); max-width: 700px; width: 100%; margin: 40px auto; border-radius: 20px;">
         <h2 class="text-center mb-4 text-white">Gestión de Usuarios</h2>
         <div class="table-responsive">
+                <a href="{{ route('homeAdministrador') }}" class="btn btn-crear" style="background-color:#603C9D !important; color: #ffffff;">
+                    <i class="fa-solid fa-arrow-left"></i> Regresar al home
+                </a>
             <table class="table align-middle mb-0">
                 <thead>
                     <tr>

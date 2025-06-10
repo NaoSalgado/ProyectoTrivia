@@ -50,7 +50,8 @@
         <p class="text-white px-3">
           Te saludamos desde Desarrollo Web, donde todo lo que puedas imaginar ¡lo puedes hacer!
         </p>
-        <button class="btn text-white">Ver más</button>
+        <a href="https://www.google.com/" class="btn text-white">Ver más</a>
+
       </div>
 
       <!-- Separador solo en desktop -->

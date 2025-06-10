@@ -67,7 +67,7 @@ class TriviaController extends Controller
             }
             
             DB::commit();
-            return redirect()->route('usuarios.trivia')->with('success', 'Trivia creada exitosamente.');
+            return redirect()->route('trivia.gestion')->with('success', 'Trivia creada exitosamente.');
 
         } catch (Exception $e) {
             DB::rollBack();
@@ -119,20 +119,12 @@ class TriviaController extends Controller
     {
         $message = "";
         $trivia = Trivia::find($id);
-        if ($trivia->estadoTriva==1){
+        if ($trivia->estado==1){
             Trivia::where('id', $trivia->id)
-            ->update([
-                'estado' => 0
-            ]);
+            ->delete();
             $message = 'Trivia eliminada';
-        } else{
-            Trivia::where('id', $trivia->id)
-            ->update([
-                'estado' => 1
-            ]);
-            $message = 'Trivia restaurada';
-        }
-        return redirect()->route('trivia.index')->with('success', $message);
+        } 
+        return redirect()->route('trivia.gestion')->with('success', $message);
     }
 
     public function mostrarTrivias()
@@ -140,6 +132,13 @@ class TriviaController extends Controller
         $trivias = Trivia::where('estado', 1)->get();
         return view('usuarios.trivia', compact('trivias'));
     }
+
+    public function gestionTrivias()
+    {
+        $trivias = Trivia::where('estado', 1)->get();
+        return view('trivia.gestion', compact('trivias'));
+    }
+
 
     public function jugar(Request $request, $trivia_id)
     {
