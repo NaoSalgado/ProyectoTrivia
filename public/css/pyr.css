@@ -1,4 +1,4 @@
-body{
+body {
   background-image: url("/img/pyr.jpg") !important;
   background-repeat: no-repeat;
   background-position: center;
@@ -26,56 +26,87 @@ body{
   align-items: center;
   justify-content: center;
   color: #FFFFFF;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  opacity: 1 !important;
+  pointer-events: auto;
 }
 
-.preg1{
-  background-color: #C11D7D;
+/* Colores base sin !important para no bloquear sobrescritura */
+#form-respuesta .row > div:nth-child(4n+1) .btn-opcion {
+  background-color: #FF9570; /* naranja */
+  color: #ffffff;
+}
+#form-respuesta .row > div:nth-child(4n+1) .btn-opcion:hover {
+  background-color: #e0865c;
+  color: #f0f0f0;
 }
 
-.preg1:hover{
-  background-color: #991763;
-  color: #b1b1b1 !important;
+#form-respuesta .row > div:nth-child(4n+2) .btn-opcion {
+  background-color: #603C9D; /* morado */
+  color: #ffffff;
+}
+#form-respuesta .row > div:nth-child(4n+2) .btn-opcion:hover {
+  background-color: #4e317a;
+  color: #f0f0f0;
 }
 
-.preg2{
-  background-color: #11C1D4;
+#form-respuesta .row > div:nth-child(4n+3) .btn-opcion {
+  background-color: #14C1DC; /* celeste */
+  color: #ffffff;
+}
+#form-respuesta .row > div:nth-child(4n+3) .btn-opcion:hover {
+  background-color: #109bb2;
+  color: #f0f0f0;
 }
 
-.preg2:hover{
-  background-color: #0f909e;
-  color: #b1b1b1 !important;
+#form-respuesta .row > div:nth-child(4n) .btn-opcion {
+  background-color: #BF0462; /* fucsia oscuro */
+  color: #ffffff;
 }
-
-.preg3{
-  background-color: #F38B4E;
-  
-}
-
-.preg3:hover{
-  background-color: #c46e3d;
-  color: #b1b1b1 !important;
-}
-
-.preg4{
-  background-color: #6A4BBE;
-}
-
-.preg4:hover{
-  background-color: #6A4BBE;
-  color: #b1b1b1 !important;
+#form-respuesta .row > div:nth-child(4n) .btn-opcion:hover {
+  background-color: #98044f;
+  color: #f0f0f0;
 }
 
 .icon {
   margin-right: 10px;
 }
 
-.principal{
+.principal {
   margin-top: 5%;
   margin-bottom: 5% !important;
 }
 
 .container {
-
   position: relative;
-  
+}
+
+/* Estilo para el texto del puntaje */
+.container > .mt-3 {
+  font-family: inherit;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* Estado correcto e incorrecto con !important para sobrescribir */
+.btn-opcion.btn-correcta {
+  background-color: #1e7e34 !important; /* verde intenso */
+  color: white !important;
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
+.btn-opcion.btn-incorrecta {
+  background-color: #b02a37 !important; /* rojo intenso */
+  color: white !important;
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
+/* Botones no seleccionados se atenúan */
+#form-respuesta .row > div .btn-opcion.no-seleccionado {
+  opacity: 0.7 !important;
+  pointer-events: none;
 }
