@@ -12,7 +12,12 @@ body{
     border-bottom: 12px solid rgba(191, 4, 98, 0.5);
 }
 
-.pene{
+.container-fluid{
     position: relative;
+    z-index: 1;
 }
 
+.btn-agregarp{
+    background: #603C9D !important;
+    color: #ffff;
+}

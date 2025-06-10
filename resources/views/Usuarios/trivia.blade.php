@@ -7,9 +7,16 @@
 @endpush
 
 @section('content')
-
-<div class="row justify-content-center gx-5 gy-4">
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+<div class="row justify-content-center gx-5 gy-4"> ">
   @forelse ($trivias as $trivia)
+ 
     <div class="col-lg-4 col-md-6">
       <div class="card">
         <img src="{{ asset('img/3.jpg') }}" class="card-img-top" alt="Imagen trivia">

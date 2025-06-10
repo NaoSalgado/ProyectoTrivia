@@ -14,7 +14,8 @@
 <!-- Tu CSS base -->
 <link href="{{ asset('css/template.css') }}" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"> <!-- Fuente Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="{{ asset('img/Logo.png') }}">
 @stack('css') <!-- <-- DEBE IR AQUÍ, AL FINAL DEL HEAD -->
 </head>

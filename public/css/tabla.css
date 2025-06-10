@@ -1,5 +1,228 @@
-.h2{
-    position: relative;
-    z-index: 1;
+/* ====== ESTILOS GENERALES ====== */
+body {
+    background-color: #2b0048;
+    margin: 0;
+    font-family: 'Inria Sans', sans-serif; /* Usa solo esta fuente */
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ====== NAVBAR ====== */
+.navbar-custom {
+    position: relative; /* Necesario para el pseudo-elemento */
+}
+.navbar-custom::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Desplaza la línea hacia abajo */
+    left: 0;
+    width: 100%;
+    height: 17px; /* Altura de la línea */
+    background-color: rgba(191, 4, 98, 0.5); /* Color rosa con opacidad */
+    z-index: 1; /* Asegura que quede visible */
+}
+
+/* ====== TIPOGRAFÍA Y COLORES ====== */
+h1 {
+    font-size: 2.5rem;
+        position: relative;
+    z-index: 2;
     color:aliceblue;
+}
+.bg-danger {
+    background-color: rgba(191, 4, 98, 0.8) !important; /* Segundo lugar */
+}
+.bg-primary {
+    background-color: rgba(96, 60, 157, 0.8) !important; /* Primer lugar */
+}
+.bg-info {
+    background-color: rgba(20, 193, 220, 0.8) !important; /* Tercer lugar */
+}
+h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* ====== CAJAS DE JUGADORES ====== */
+.bg-danger, .bg-primary, .bg-info {
+    border-radius: 10px;
+}
+
+/* ====== VISTA NORMAL (ESCRITORIO) ====== */
+/* El podio grande está en una fila con .row y .col-3, visible solo en escritorio */
+@media (min-width: 769px) {
+    .d-none.d-md-flex {
+        display: flex !important; /* Muestra el podio grande en escritorio */
+    }
+    .d-flex.d-md-none {
+        display: none !important; /* Oculta el podio móvil en escritorio */
+    }
+}
+
+/* ====== VISTA MÓVIL ====== */
+/* El podio móvil está en .d-flex.d-md-none, visible solo en móvil */
+@media (max-width: 768px) {
+    .row {
+        flex-wrap: wrap; /* Permite que las cajas se apilen */
+        justify-content: center; /* Centra las cajas horizontalmente */
+    }
+    .col-3 {
+        flex: 0 0 100%; /* Las cajas ocupan todo el ancho */
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .bg-danger, .bg-primary, .bg-info {
+        height: 300px; /* Ajusta la altura de las cajas */
+    }
+    /* Cambia el orden de las cajas para móvil */
+    .col-3:nth-child(2) { order: 1; }
+    .col-3:nth-child(1) { order: 2; }
+    .col-3:nth-child(3) { order: 3; }
+
+    /* Oculta el podio grande en móvil y muestra el móvil */
+    .d-none.d-md-flex {
+        display: none !important; /* Oculta el podio grande en móvil */
+    }
+    .d-flex.d-md-none {
+        display: flex !important; /* Muestra el podio móvil en móvil */
+    }
+}
+
+/* ====== TABLA DE POSICIONES ====== */
+@media (max-width: 767.98px) {
+    .table-container {
+        padding: 8px !important;
+        margin-top: 10px !important;
+    }
+    .table-container .table {
+        font-size: 0.85rem !important;
+    }
+    .table-row {
+        padding: 4px 8px !important;
+        margin-bottom: 6px !important;
+        border-radius: 12px !important;
+    }
+    .table-row td {
+        font-size: 1.1rem !important;
+        padding: 0 2px !important;
+    }
+    .position,
+    .player-name,
+    .points {
+        font-size: 1.2rem !important;
+    }
+}
+
+/* Estilo para las filas de la tabla */
+.bg-light-blue {
+    background-color: rgba(20, 193, 220, 0.8); /* Azul claro con opacidad */
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+/* Barra de progreso (eliminada) */
+.progress {
+    display: none;
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+}
+
+/* Estilo de las filas */
+.table-row {
+    background-color: rgba(173, 216, 230, 0.8);
+    border-radius: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    transform: translateY(60px);
+    opacity: 0;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s;
+}
+.table-row.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+.table-row td {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+.position {
+    font-size: 3rem;
+    font-weight: bold;
+    flex: 0 0 10%;
+}
+.player-name {
+    font-size: 3rem;
+    font-weight: bold;
+    flex: 1;
+}
+.points {
+    text-align: right;
+    font-size: 3rem;
+    flex: 0 0 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* ====== ANIMACIONES DEL PODIO ====== */
+/* Animación de elevación para los pilares del podio grande */
+.podium-animate {
+    transform: translateY(1000px); /* Empieza abajo */
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s;
+}
+.podium-animate.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+/* Evita que los podios se encojan demasiado en móvil */
+.podium-animate {
+    min-width: 250px;
+}
+.row.flex-nowrap {
+    overflow-x: auto;
+}
+
+/* Animación para el podio móvil */
+@keyframes mobilePodiumIn {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.mobile-podium {
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+    animation: mobilePodiumIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.mobile-podium.delay-1 {
+    animation-delay: 0.1s;
+}
+.mobile-podium.delay-2 {
+    animation-delay: 0.3s;
+}
+.mobile-podium.delay-3 {
+    animation-delay: 0.5s;
 }

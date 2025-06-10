@@ -23,29 +23,36 @@
 @section('title','Crear Trivias')
 
 @section('content')
-<div class="container pene  mt-5" style="z-index: 1;">
-    <h2 class="text-center mb-4">Crear Trivia</h2>
-    <form method="POST" action="{{ route('trivias.store') }}" id="triviaForm">
-        @csrf
-        <div class="mb-3">
-            <label class="form-label">Nombre de la trivia</label>
-            <input type="text" name="nombre" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Descripción de la trivia</label>
-            <input type="text" name="descripcion" class="form-control" required>
-        </div>
 
-        <div id="preguntasContainer"></div>
+<br>
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPregunta">
-            Añadir Pregunta
-        </button>
+<div class="container-fluid d-flex justify-content-center" style="min-height: 100vh;">
+    <div class="p-4" style="background: rgba(255,255,255,0.3); max-width: 700px; width: 100%; margin: 40px auto; border-radius: 20px;">
+        <h2 class="text-center mb-4 text-white">Crear Trivia</h2>
+        <form method="POST" action="{{ route('trivias.store') }}" id="triviaForm">
+            @csrf
+            <div class="mb-3">
+                <label for="nombre" class="form-label fw-bold text-white" style="font-size: 18px;">Nombre de la trivia</label>
+                <input type="text" id="nombre" name="nombre" class="form-control rounded" placeholder="Ingresar el nombre de la trivia" required>
+            </div>
+            <div class="mb-4">
+                <button type="button" class="btn text-secondary bg-white px-4 py-2 rounded" data-bs-toggle="modal" data-bs-target="#modalPregunta">
+                <i class="fa-solid fa-plus" style="color: #000000;"></i>
+                    Añadir pregunta
+                </button>
+            </div>
 
-        <div class="text-end mt-3">
-            <button type="submit" class="btn btn-success">Guardar Trivia</button>
-        </div>
-    </form>
+            <div id="preguntasContainer" class="mb-4">
+                <!-- Aquí se agregarán las preguntas dinámicamente -->
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn text-white px-4 py-2 rounded" style="background-color: #603C9D;">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <!-- Modal Pregunta -->
@@ -60,7 +67,7 @@
         <div class="modal-body">
             <div class="mb-3">
                 <label>Descripción de la pregunta</label>
-                <input type="text" id="descripcionPregunta" class="form-control" required>
+                <input type="text" id="descripcionPregunta" class="form-control" >
             </div>
             <div class="mb-3">
                 <label>Puntaje</label>
@@ -68,7 +75,7 @@
             </div>
             <hr>
             <h6>Respuestas</h6>
-            <div id="respuestasContainer"></div>
+            <div id="respuestasContainerModal"></div>
             <button type="button" class="btn btn-outline-primary" onclick="agregarRespuesta()">+ Añadir Respuesta</button>
         </div>
         <div class="modal-footer">
@@ -86,7 +93,7 @@ document.getElementById('preguntaForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const descripcion = document.getElementById('descripcionPregunta').value;
     const puntaje = document.getElementById('puntajePregunta').value;
-    const respuestasElems = document.querySelectorAll('.respuestaItem');
+    const respuestasElems = document.querySelectorAll('#respuestasContainerModal .respuestaItem');
 
     const respuestas = Array.from(respuestasElems).map(el => ({
         descripcion: el.querySelector('.respuestaDescripcion').value,
@@ -117,13 +124,13 @@ document.getElementById('preguntaForm').addEventListener('submit', function(e) {
     `);
 
     document.getElementById('preguntaForm').reset();
-    document.getElementById('respuestasContainer').innerHTML = '';
+    document.getElementById('respuestasContainerModal').innerHTML = '';
     const modal = bootstrap.Modal.getInstance(document.getElementById('modalPregunta'));
     modal.hide();
 });
 
 function agregarRespuesta() {
-    const container = document.getElementById('respuestasContainer');
+    const container = document.getElementById('respuestasContainerModal');
     const index = container.children.length;
     container.insertAdjacentHTML('beforeend', `
         <div class="respuestaItem mb-2">
@@ -137,3 +144,4 @@ function agregarRespuesta() {
 }
 </script>
 @endsection
+
