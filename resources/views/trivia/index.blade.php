@@ -10,42 +10,35 @@
 @section('content')
 
 <div class="container text-center">
-    @if(session('acierto'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert" id="acierto-alert">
-            {{ session('acierto') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-        <script>
-            setTimeout(() => {
-                const alert = document.getElementById('acierto-alert');
-                if(alert) alert.classList.remove('show');
-            }, 1500);
-        </script>
-    @endif
+
     <div class="row principal mb-5">
       <div class="col-12">
         <div class="pregunta">{{ $pregunta->descripcion }}</div>
       </div>
     </div>
+
     <form id="form-respuesta" method="post" action="{{ route('trivia.responder', $trivia_id) }}">
-      @csrf
-      <div class="row g-3">
-        @foreach ($respuestas as $respuesta)
-          <div class="col-md-6">
-            <button 
-              type="submit" 
-              name="respuesta_id" 
-              value="{{ $respuesta->id }}" 
-              class="btn btn-opcion mb-5 preg1"
-              data-estado="{{ $respuesta->estado }}"
-            >
-              <span class="icon"><i class="fas fa-globe"></i></span>
-              {{ $respuesta->descripcionRespuesta }}
-            </button>
-          </div>
-        @endforeach
-      </div>
+        @csrf
+        <!-- Campo oculto para enviar la respuesta seleccionada -->
+        <input type="hidden" name="respuesta_id" id="respuesta_id" />
+
+        <div class="row g-3">
+            @foreach ($respuestas as $respuesta)
+                <div class="col-md-6">
+                    <button 
+                        type="button" 
+                        class="btn btn-opcion mb-5 preg1" 
+                        data-id="{{ $respuesta->id }}" 
+                        data-estado="{{ $respuesta->estado }}"
+                    >
+                        <span class="icon"><i class="fas fa-globe"></i></span>
+                        {{ $respuesta->descripcionRespuesta }}
+                    </button>
+                </div>
+            @endforeach
+        </div>
     </form>
+
     <div class="mt-3">Puntaje actual: {{ $puntaje }}</div>
 </div>
 
@@ -55,20 +48,21 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form-respuesta');
-    const botones = form.querySelectorAll('button[name="respuesta_id"]');
+    const inputRespuesta = document.getElementById('respuesta_id');
+    const botones = form.querySelectorAll('button[data-id]');
 
     botones.forEach(btn => {
       btn.addEventListener('click', function(e) {
-        e.preventDefault(); // evitar submit inmediato
+        e.preventDefault();
 
-        // Deshabilitar todos los botones y quitar clases previas
+        // Deshabilitar todos y limpiar clases previas
         botones.forEach(b => {
           b.classList.remove('btn-correcta', 'btn-incorrecta', 'no-seleccionado');
           b.disabled = true;
         });
 
-        // Aplicar clase según estado (1=correcto, 0=incorrecto)
-        if(this.dataset.estado === '1') {
+        // Marcar el botón según estado
+        if (this.dataset.estado === '1') {
           this.classList.add('btn-correcta');
         } else {
           this.classList.add('btn-incorrecta');
@@ -76,12 +70,13 @@
 
         // Atenuar botones no seleccionados
         botones.forEach(b => {
-          if(b !== this) {
-            b.classList.add('no-seleccionado');
-          }
+          if (b !== this) b.classList.add('no-seleccionado');
         });
 
-        // Enviar formulario después de mostrar colores
+        // Cargar la respuesta en el input oculto
+        inputRespuesta.value = this.dataset.id;
+
+        // Enviar formulario
         setTimeout(() => {
           form.submit();
         }, 800);
