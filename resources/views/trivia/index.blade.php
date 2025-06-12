@@ -5,13 +5,31 @@
 @push('css')
     <link href="{{ asset('/css/pyr.css') }}" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        @media (max-width: 767.98px) {
+            .btn-opcion {
+                width: 100%;
+                font-size: 1.1rem;
+            }
+            .row.g-3 {
+                --bs-gutter-x: 0.5rem;
+                --bs-gutter-y: 0.5rem;
+            }
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding-left: 4px;
+                padding-right: 4px;
+            }
+        }
+    </style>
 @endpush
 
 @section('content')
 
 <div class="container text-center">
 
-    <div class="row principal mb-5">
+    <div class="row principal">
       <div class="col-12">
         <div class="pregunta">{{ $pregunta->descripcion }}</div>
       </div>
@@ -22,12 +40,12 @@
         <!-- Campo oculto para enviar la respuesta seleccionada -->
         <input type="hidden" name="respuesta_id" id="respuesta_id" />
 
-        <div class="row g-3">
+        <div class="row g-3 justify-content-center">
             @foreach ($respuestas as $respuesta)
-                <div class="col-md-6">
+                <div class="col-6 col-md-6">
                     <button 
                         type="button" 
-                        class="btn btn-opcion mb-5 preg1" 
+                        class="btn btn-opcion mb-4 preg1 w-100" 
                         data-id="{{ $respuesta->id }}" 
                         data-estado="{{ $respuesta->estado }}"
                     >

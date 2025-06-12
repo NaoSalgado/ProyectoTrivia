@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -30,12 +31,14 @@
     @stack('css')
 </head>
 <body class="h-100 bg-dark text-white">
+
   <div class="container-fluid h-100 d-flex flex-column justify-content-center">
     <div class="row h-100 d-flex flex-column flex-md-row align-items-center justify-content-center text-center">
       
+      
       <!-- Sección izquierda -->
       <div class="col-12 col-md-5 mb-4 mb-md-0 order-1 order-md-0">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center d-none d-md-flex">
           <div class="col-6 spaceweb">
             <img src="{{ asset('img/Spaceweb.png') }}" class="img mb-1 mt-5" alt="Logo 1">
           </div>
@@ -44,13 +47,13 @@
           </div>
         </div>
 
-        <div class="linea-horizontal my-3"></div>
+        <div class="linea-horizontal my-3 d-none d-md-block"></div>
 
-        <h2 class="titulo fw-bold mt-3 mb-3">¡BIENVENIDOS!</h2>
-        <p class="text-white px-3">
+        <h2 class="titulo fw-bold mt-3 mb-3 d-none d-md-block">¡BIENVENIDOS!</h2>
+        <p class="text-white px-3 d-none d-md-block">
           Te saludamos desde Desarrollo Web, donde todo lo que puedas imaginar ¡lo puedes hacer!
         </p>
-        <a href="https://www.google.com/" class="btn text-white">Ver más</a>
+        <a href="https://infocovao.xyz/" class="btn text-white d-none d-md-inline-block">Ver más</a>
 
       </div>
 
@@ -76,7 +79,6 @@
               <input type="text" name="nombre" class="form-control fw-bold" placeholder="Ingrese su nombre" value="{{ old('nombre') }}">
             </div>
 
-
             @if($errors->any())
               <div class="alert alert-danger">
                   {{ $errors->first() }}
@@ -90,8 +92,8 @@
     </div>
   </div>
 
-  <!-- Botón administrador fijo en esquina inferior derecha -->
-  <div class="position-absolute bottom-0 end-0 m-3">
+  <!-- Botón administrador solo en pantallas medianas en adelante -->
+  <div class="position-absolute bottom-0 end-0 m-3 d-none d-md-block">
     <a href="{{ asset('loginAdmin') }}" class="btn admin">
       <i class="fa-solid fa-user text-white"></i>
       <span class="text-white">Administrador</span>

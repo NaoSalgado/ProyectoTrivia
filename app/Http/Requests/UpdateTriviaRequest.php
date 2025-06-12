@@ -24,7 +24,7 @@ class UpdateTriviaRequest extends FormRequest
         $trivia = $this->route('trivia');
         return [
             'nombre' => 'required|max:80',
-            'descripcion'=> 'required|max:80',
+            'descripcion'=> 'max:80',
             'preguntas' => 'required|array',
             'preguntas.*.descripcion' => 'required|string|max:255',
             'preguntas.*.puntaje' => 'required|integer',

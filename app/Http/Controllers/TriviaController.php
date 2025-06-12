@@ -91,6 +91,7 @@ class TriviaController extends Controller
      */
     public function edit(Trivia $trivia)
     {
+        $trivia->load('preguntas.respuestas');
         return view('trivia.edit', compact('trivia'));
     }
 

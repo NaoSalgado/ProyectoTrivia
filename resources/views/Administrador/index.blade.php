@@ -1,18 +1,80 @@
+
 @extends('template')
 
 @section('title', 'Administradores')
 
 @push('css')
     <link href="{{ asset('css/GestionUsuario.css') }}" rel="stylesheet" />
+    <style>
+        @media (max-width: 767.98px) {
+            .tabla-usuarios {
+                padding: 0.5rem !important;
+                border-radius: 10px !important;
+            }
+            .table-responsive {
+                overflow-x: auto;
+            }
+            .table th, .table td {
+                font-size: 0.95rem;
+                padding: 0.5rem 0.3rem;
+                vertical-align: middle;
+            }
+            .d-flex.gap-2 {
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+            }
+            .acciones-celda {
+                text-align: left !important;
+            }
+            .acciones-botones {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 0.4rem;
+                width: 100%;
+            }
+            .acciones-botones .btn {
+                width: auto;
+                min-width: 40px;
+                margin: 0 !important;
+            }
+            .top-buttons {
+                flex-direction: row !important;
+                gap: 0.5rem !important;
+                width: 100%;
+                justify-content: flex-end;
+                margin-top: 1rem;
+            }
+            .top-buttons .btn {
+                width: auto;
+                min-width: 120px;
+            }
+        }
+        @media (min-width: 768px) {
+            .acciones-botones {
+                display: inline-flex !important;
+                flex-direction: row !important;
+                gap: 0.3rem;
+            }
+            .acciones-celda {
+                text-align: center !important;
+            }
+            .top-buttons {
+                flex-direction: row !important;
+                gap: 0.5rem !important;
+                justify-content: flex-end;
+            }
+        }
+    </style>
 @endpush
 
 @section('content')
 
 <div class="container-fluid d-flex justify-content-center align-items-center">
     <div class="p-4 shadow tabla-usuarios" style="background: rgba(255,255,255,0.15); max-width: 700px; width: 100%; margin: 40px auto; border-radius: 20px;">
-        <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
             <h2 class="text-white mb-0">Gestión de Administradores</h2>
-            <div class="d-flex gap-2">
+            <div class="d-flex top-buttons">
                 <a href="{{ route('homeAdministrador') }}" class="btn btn-crear" style="background-color:#603C9D !important; color: #ffffff;">
                     <i class="fa-solid fa-arrow-left"></i> Regresar al home
                 </a>
@@ -28,18 +90,20 @@
                 <thead>
                     <tr>
                         <th style="width: 70%;">Nombre</th>
-                        <th style="width: 30%;" class="text-center">Acciones</th>
+                        <th style="width: 30%;" class="acciones-celda">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($administrador as $item)
                     <tr>
                         <td>{{ $item->nombre ?? 'N/A' }}</td>
-                        <td class="text-center">
-                            <form action="{{ route('administrador.edit',['administrador' => $item]) }}" method="get">
-                                <button type="submit" class="btn btn-sm btn-outline-light me-2"><i class="fa-solid fa-pen"></i></button>
+                        <td class="acciones-celda">
+                            <div class="acciones-botones">
+                                <form action="{{ route('administrador.edit',['administrador' => $item]) }}" method="get" class="d-inline">
+                                    <button type="submit" class="btn btn-sm btn-outline-light"><i class="fa-solid fa-pen"></i></button>
+                                </form>
                                 <button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalAdministradorEliminar-{{ $item->id }}"><i class="fa-solid fa-trash"></i></button>
-                            </form>
+                            </div>
                         </td>
                     </tr>
 

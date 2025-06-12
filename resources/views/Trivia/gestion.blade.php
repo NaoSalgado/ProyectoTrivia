@@ -9,9 +9,13 @@
 @section('content')
 
 <div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
-        <h2 class="text-white text-center flex-grow-1 mb-3 mb-md-0">Gestión de Trivias</h2>
-        <div class="ms-md-3 text-md-end w-100 w-md-auto">
+    <div class="row mb-4">
+        <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <a href="{{ route('homeAdministrador') }}" class="btn btn-crear" style="background-color:#603C9D !important; color: #ffffff;">
+                <i class="fa-solid fa-arrow-left"></i> Regresar al home
+            </a>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
             <a href="{{ route('trivia.create') }}" class="btn btn-purple">Crear Trivia</a>
         </div>
     </div>
